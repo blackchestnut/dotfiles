@@ -1,6 +1,16 @@
 [user]
 	name = blackchestnut
 	email = alexander.kalinichev@gmail.com
+[merge]
+  summary = true
+  verbosity = 1
+  tool = mvimdiff
+[mergetool]
+  prompt = false
+[mergetool "mvimdiff"]
+  ;cmd = /usr/local/bin/mvimdiff -f "$LOCAL" "$MERGED" "$REMOTE"
+  cmd = "mvim -f --nomru -c 'Gdiff' $MERGED" # use fugitive.vim for 3-way merge
+  keepBackup = false
 [filter "media"]
 	required = true
 	clean = git media clean %f
