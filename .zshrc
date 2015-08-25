@@ -60,9 +60,7 @@ source ~/.environments
 #-----------------------------------------------------------------------------------------
 
 RALSPROJECTS="~/projects"
-alias news="cd $RALSPROJECTS/news25km"
-alias mybudget="cd $RALSPROJECTS/mybudget"
-alias my=mybudget
+alias my="cd $RALSPROJECTS/mybudget"
 alias shi="cd $RALSPROJECTS/shikimori.org/shikimori"
 alias vi="cd $RALSPROJECTS/vimocean"
 alias ag="cd $RALSPROJECTS/agileseason"
@@ -121,18 +119,7 @@ alias deploy=pdeploy
 # Process
 #-----------------------------------------------------------------------------------------
 
-fpath=(path/to/zsh-completions/src $fpath)
-zstyle ':completion:*:processes' command 'ps -ax'
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
-zstyle ':completion:*:*:kill:*' menu yes select
-zstyle ':completion:*:kill:*'   force-list always
-
-zstyle ':completion:*:processes-names' command 'ps -e -o comm='
-zstyle ':completion:*:*:killall:*' menu yes select
-zstyle ':completion:*:killall:*'   force-list always
-
 alias psg="ps aux|grep $1"
-alias psx="ps aux|grep $1"
 
 port_lock() {
   lsof -i tcp:$1
