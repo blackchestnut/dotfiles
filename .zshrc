@@ -95,6 +95,7 @@ alias gp='git push'
 alias gb="git checkout -b $1"
 alias ga='git add -A'
 alias gc="git commit -m $1"
+alias gm='git mergetool'
 alias master='git checkout master && gu'
 alias develop='git checkout develop && gu'
 git_commit_m() {
