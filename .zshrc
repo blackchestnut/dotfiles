@@ -93,7 +93,8 @@ alias gl="git log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s
 alias gu='git-up' # https://github.com/aanand/git-up
 alias gp='git push'
 alias gb="git checkout -b $1"
-alias ga='git add -A'
+alias ga="git add $1"
+alias gall='git add -A'
 alias gc="git commit -m $1"
 alias gm='git mergetool'
 alias master='git checkout master && gu'
