@@ -149,7 +149,7 @@ fgrep_ext() {
   fgrep -i -r $1 **/*.$2 | grep --color $1
 }
 fgrep_r() {
-  fgrep -i -r $1 **/*.{rb,slim,erb,sass,coffee} | grep --color $1
+  fgrep -i -r $1 **/*.{rb,slim,erb,sass,coffee,yml} | grep --color $1
 }
 alias f=fgrep_r
 alias fx=fgrep_ext
