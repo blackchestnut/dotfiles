@@ -146,7 +146,7 @@ fgrep_all() {
   fgrep -i -r $1 **/ | grep --color $1
 }
 fgrep_ext() {
-  fgrep -i -r $1 **/*.$2 | grep --color $1
+  fgrep -i -r $2 **/*.$1 | grep --color $2
 }
 fgrep_r() {
   fgrep -i -r $1 **/*.{rb,slim,erb,sass,coffee,yml} | grep --color $1
