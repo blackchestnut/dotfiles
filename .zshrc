@@ -65,6 +65,8 @@ alias shi="cd $RALSPROJECTS/shikimori.org/shikimori"
 alias vi="cd $RALSPROJECTS/vimocean"
 alias ag="cd $RALSPROJECTS/agileseason"
 alias tt="cd $RALSPROJECTS/trantoria"
+alias na="cd $RALSPROJECTS/nala"
+alias pu="cd $RALSPROJECTS/pumba"
 alias mygo="cd $GOPATH/src/github.com/blackchestnut"
 cd_projects() {
   cd ~/projects/$1
@@ -150,7 +152,7 @@ fgrep_ext() {
   fgrep -i -r $2 **/*.$1 | grep --color $2
 }
 fgrep_r() {
-  fgrep -i -r $1 **/*.{rb,slim,erb,sass,coffee,yml} | grep --color $1
+  fgrep -i -r $1 **/*.{rb,slim,sass,coffee,yml} | grep --color $1
 }
 alias f=fgrep_r
 alias fx=fgrep_ext
