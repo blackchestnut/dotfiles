@@ -93,17 +93,13 @@ alias gl="git log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s
 alias gu='git-up' # https://github.com/aanand/git-up
 alias gp='git push'
 alias gb="git checkout -b $1"
-alias ga="git add $1"
+alias gch="git checkout $1"
 alias gaa='git add -A'
+alias ga="git add $1"
 alias gc="git commit -m $1"
 alias gm='git mergetool'
-alias gch="git checkout $1"
 alias master='git checkout master && gu'
 alias develop='git checkout develop && gu'
-git_commit_m() {
-  git add -A && git commit -m "$1"
-}
-alias gcm=git_commit_m
 
 #-----------------------------------------------------------------------------------------
 # Rails
@@ -157,3 +153,9 @@ fgrep_r() {
 alias f=fgrep_r
 alias fx=fgrep_ext
 alias fa=fgrep_all
+
+#-----------------------------------------------------------------------------------------
+# History
+#-----------------------------------------------------------------------------------------
+
+alias hg="history | grep $1"
