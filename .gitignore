@@ -4,6 +4,11 @@
 .DS_Store
 .NERDTreeBookmarks
 
+.vim/.sessions
+.vim/browser
+.vim/bundle
+.vim/_bundle
+
 /.Trash
 /Applications
 /Backup
