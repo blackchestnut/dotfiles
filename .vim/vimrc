@@ -24,18 +24,28 @@ autocmd User fugitive
   \ endif
 autocmd BufReadPost fugitive://* set bufhidden=delete
 set diffopt+=vertical
-"-----------------------------------------------------------------------------
-" sytanstic
-"-----------------------------------------------------------------------------
-"let g:syntastic_ruby_checkers=['mri'] ", 'rubylint', 'rubocop'
-"let g:syntastic_ruby_mri_args='-T1 -c'
-let g:syntastic_coffee_checkers=['coffee'] ", 'coffeelint'
+
+"-------------------------------------------------------------------------------
+" syntastic
+"-------------------------------------------------------------------------------
+let g:syntastic_ruby_mri_exec = '~/.rvm/rubies/ruby-2.3.0/bin/ruby'
+
+" http://vim.wikia.com/wiki/Simplifying_regular_expressions_using_magic_and_no-magic
+"
+" '\m^shadowing outer local variable'
+let g:syntastic_ruby_mri_quiet_messages = {
+\   'regex': [
+\     '\m`&'' interpreted as argument prefix',
+\     '\m`*'' interpreted as argument prefix',
+\     '\mambiguous first argument; put parentheses or a space even after `/'' operator'
+\   ]
+\ }
+let g:syntastic_coffee_checkers=['coffee']
 let g:syntastic_slim_checkers=['slimrb']
 let g:syntastic_json_checkers=['jsonlint'] " npm install -g jsonlint
 let g:vim_json_syntax_conceal = 0
 let g:syntastic_sass_checkers=[]
-"let g:syntastic_enable_signs=1
-"let g:syntastic_auto_loc_list=1
+
 "-----------------------------------------------------------------------------
 " matchit
 "-----------------------------------------------------------------------------
@@ -170,6 +180,7 @@ set linespace=0
 "set guifont=Andale\ Mono\ MT\ Std:h13
 
 set number " always show line numbers
+set cpoptions+=$
 set colorcolumn=84
 set guioptions-=T
 set ch=1
@@ -199,7 +210,6 @@ set cursorline
 "set showmode
 set noshowmode
 set noerrorbells
-set cpoptions+=$
 "set nocp " option for cppomnicomplete
 set list
 "set listchars=trail:.
