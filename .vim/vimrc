@@ -1,5 +1,6 @@
 let mapleader = ";"
 let g:vimrubocop_config = '~/.vim/configs/rubocop/default.yml'
+
 "-----------------------------------------------------------------------------
 "  Buffergator
 "-----------------------------------------------------------------------------
@@ -8,6 +9,7 @@ nnoremap <silent> <Leader>b :BuffergatorOpen<CR>
 "nnoremap <silent> <Leader>B :BuffergatorClose<CR>
 "nnoremap <silent> <Leader>t :BuffergatorTabsOpen<CR>
 "nnoremap <silent> <Leader>T :BuffergatorTabsClose<CR>
+
 "-----------------------------------------------------------------------------
 " pathogen
 "-----------------------------------------------------------------------------
@@ -15,6 +17,7 @@ filetype off
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 filetype on
+
 "-----------------------------------------------------------------------------
 " fugitive
 "-----------------------------------------------------------------------------
@@ -50,11 +53,13 @@ let g:syntastic_sass_checkers=[]
 " matchit
 "-----------------------------------------------------------------------------
 runtime macros/matchit.vim
+
 "-----------------------------------------------------------------------------
 " powerline
 "-----------------------------------------------------------------------------
 let g:airline_powerline_fonts = 1
 set laststatus=2
+
 "-----------------------------------------------------------------------------
 " Command-T
 "-----------------------------------------------------------------------------
@@ -89,16 +94,7 @@ nmap <silent> <leader>j :CommandTJump<CR>
 "let g:CommandTAcceptSelectionTabCommand = 'GotoOrOpen tabe'
 "let g:CommandTAcceptSelectionSplitCommand = 'GotoOrOpen sp'
 "let g:CommandTAcceptSelectionVSplitCommand = 'GotoOrOpen vs'
-"-----------------------------------------------------------------------------
-" буферы закрываем всегда
-"-----------------------------------------------------------------------------
-"function! s:set_bufhidden()
-  "if empty(&buftype)
-    "setlocal bufhidden=wipe
-  "endif
-"endfunction
 
-"autocmd! BufRead * call s:set_bufhidden()
 "-----------------------------------------------------------------------------
 " options
 "-----------------------------------------------------------------------------
@@ -249,6 +245,7 @@ else
   set runtimepath+=~/vimfiles/vim-ruby
   set runtimepath+=~/vimfiles/vim-rails
 endif
+
 "-----------------------------------------------------------------------------
 " hotkeys
 "-----------------------------------------------------------------------------
@@ -374,13 +371,17 @@ map <silent> <leader>N :NERDTreeFind<cr>
 
 nmap <f1> :CommandT<cr>
 nmap ,<f1>r :CommandTFlush<cr>:CommandT<cr>
-
 nmap <f2> :NERDTreeFind<cr>
-
 nmap <f3> :BuffergatorToggle<cr>
 
 let g:speckySpecSwitcherKey="<f4>"
 nmap gs <c-w><c-v><c-w>l<f4>
+
+" Beginning of line
+nmap <s-h> <c-0>eb
+" End of line
+nmap <s-l> $
+
 " Git
 nnoremap <f5> :Gcommit<cr>
 inoremap <f5> <c-O>:Gcommit<cr>
