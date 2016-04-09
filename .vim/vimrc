@@ -247,7 +247,7 @@ else
 endif
 
 "-----------------------------------------------------------------------------
-" hotkeys
+" hotkeys / shortcuts
 "-----------------------------------------------------------------------------
 vmap < <gv
 vmap > >gv
@@ -262,10 +262,10 @@ vnoremap <c-insert> "+y
 
 " CTRL-V and SHIFT-Insert are Paste
 "map <c-v>     "+gP
-map <s-insert>    "+gP
+map <s-insert> "+gP
 
 "cmap <c-v>    <c-r>+
-cmap <s-insert>   <c-r>+
+cmap <s-insert> <c-r>+
 
 " Pasting blockwise and linewise selections is not possible in Insert and
 " Visual mode without the +virtualedit feature.  They are pasted as if they
@@ -353,6 +353,7 @@ imap <c-tab> <c-r>=InsertTabLineWrapper()<cr>
 imap <s-tab> <c-n>
 " quit
 nmap <c-q> :q!<cr>
+nmap <c-c> :bd<cr>
 vmap <c-q> <esc>:q!<cr>i
 imap <c-q> <esc>:q!<cr>i
 
