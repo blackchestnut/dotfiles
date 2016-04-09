@@ -85,7 +85,8 @@ alias shikimori='ssh devops@78.46.50.20'
 # Git
 #-----------------------------------------------------------------------------------------
 
-alias g='git status'
+alias g='git'
+alias gs='git status'
 alias gd='git diff head --color'
 alias gd1='git diff head~1 --color'
 alias gd2='git diff head~2 --color'
