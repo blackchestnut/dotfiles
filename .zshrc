@@ -46,12 +46,12 @@ source $ZSH/oh-my-zsh.sh
 # Environment variables
 #-----------------------------------------------------------------------------------------
 
-#export CC=clang
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/share/npm/bin
 export PATH=/usr/local/bin:$PATH
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export GOPATH=$HOME/go # Go Workspaces
 export PATH=$PATH:$GOPATH/bin # Add Go bins to PATH for installed golang-programms
+export PATH="$HOME/.rbenv/bin:$PATH" # Add rbenv path.
 export BUNDLER_EDITOR='mvim' # For $ bundle open gem_name
 source ~/.environments
 
@@ -163,3 +163,8 @@ alias fa=fgrep_all
 #-----------------------------------------------------------------------------------------
 
 alias hg="history | grep $1"
+
+#-----------------------------------------------------------------------------------------
+# Startup
+#-----------------------------------------------------------------------------------------
+eval "$(rbenv init -)"
