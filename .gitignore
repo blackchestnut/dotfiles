@@ -1,15 +1,28 @@
-.zsh*
-.irb*
-.heroku
 .DS_Store
 .NERDTreeBookmarks
+.bash_history
+.heroku
+.irb*
+.psql_history
+.viminfo
+.zsh*
 
 .vim/.sessions
+.vim/_bundle
 .vim/browser
 .vim/bundle
-.vim/_bundle
 
 /.Trash
+/.backup
+/.bash_sessions
+/.bundle
+/.cache
+/.gem
+/.local
+/.oh-my-zsh
+/.pow
+/.rbenv
+/.subversion
 /Applications
 /Backup
 /Desktop
@@ -23,6 +36,6 @@
 /Public
 /apps
 /go
-/projects
 /log
+/projects
 /tmp
