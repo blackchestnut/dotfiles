@@ -89,9 +89,9 @@ alias shikimori='ssh devops@78.46.50.20'
 
 alias g='git'
 alias gs='git status'
-alias gd='git diff head --color'
-alias gd1='git diff head~1 --color'
-alias gd2='git diff head~2 --color'
+alias gd='git diff HEAD --color'
+alias gd1='git diff HEAD~1 --color'
+alias gd2='git diff HEAD~2 --color'
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s - %C(bold blue)%an%Creset, %Cgreen%cr' --abbrev-commit"
 alias gu='git-up' # https://github.com/aanand/git-up
 alias gp='git push'
