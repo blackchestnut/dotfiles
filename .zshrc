@@ -69,11 +69,17 @@ alias na="cd $RALSPROJECTS/nala"
 alias pu="cd $RALSPROJECTS/pumba"
 alias ma="cd $RALSPROJECTS/market"
 alias mp="cd $RALSPROJECTS/market_parser"
+alias ch="cd $RALSPROJECTS/chef-my/"
 alias mygo="cd $GOPATH/src/github.com/blackchestnut"
 cd_projects() {
   cd ~/projects/$1
 }
 alias pr=cd_projects
+
+#-----------------------------------------------------------------------------------------
+# bash / zsh
+#-----------------------------------------------------------------------------------------
+alias update='. ~/.zshrc'
 
 #-----------------------------------------------------------------------------------------
 # ssh
@@ -166,6 +172,7 @@ alias fa=fgrep_all
 #-----------------------------------------------------------------------------------------
 
 alias hg="history | grep $1"
+alias gh=hg
 
 #-----------------------------------------------------------------------------------------
 # Startup
