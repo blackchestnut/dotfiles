@@ -52,11 +52,13 @@
 .berkshelf/
 .bundle/
 .cache/
+.chef/
 .chefdk/
 .codeintel/
 .config/
 .dropbox/
 .gem/
+.gnupg/
 .gsutil/
 .hex/
 .local/
