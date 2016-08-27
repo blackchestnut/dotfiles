@@ -79,7 +79,8 @@ alias pr=cd_projects
 #-----------------------------------------------------------------------------------------
 # bash / zsh
 #-----------------------------------------------------------------------------------------
-alias update='. ~/.zshrc'
+
+alias reload='. ~/.zshrc'
 
 #-----------------------------------------------------------------------------------------
 # ssh
@@ -107,6 +108,7 @@ alias gaa='git add -A'
 alias ga="git add $1"
 alias gc="git commit -m $1"
 alias gm='git mergetool'
+alias gra='git reset --hard && git clean -f'
 alias master='git checkout master && gu'
 alias develop='git checkout develop && gu'
 
