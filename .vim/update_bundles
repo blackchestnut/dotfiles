@@ -3,7 +3,6 @@ require 'fileutils'
 require 'open-uri'
 
 git_bundles = %w[
-  keithbsmiley/rspec.vim
   ap/vim-css-color
   bkad/CamelCaseMotion
   bling/vim-airline
@@ -13,8 +12,10 @@ git_bundles = %w[
   fatih/vim-go
   jeetsukumaran/vim-buffergator
   kchmck/vim-coffee-script
+  keithbsmiley/rspec.vim
   majutsushi/tagbar
   ngmy/vim-rubocop
+  plasticboy/vim-markdown
   saks/Specky
   scrooloose/nerdcommenter
   scrooloose/nerdtree
@@ -32,18 +33,6 @@ git_bundles = %w[
   vim-scripts/vimgrep.vim
   wincent/Command-T
 ]
-#gregsexton/gitv
-#timcharper/textile.vim
-#tpope/vim-cucumber
-#tpope/vim-git
-#tpope/vim-markdown
-#tpope/vim-repeat
-#tpope/vim-vividchalk
-#tsaleh/vim-align
-#tsaleh/vim-shoulda
-#tsaleh/vim-supertab
-#tsaleh/vim-tcomment
-#jrhorn424/vim-multiple-cursors
 
 git_keep = []
 
@@ -67,8 +56,8 @@ end
 
 puts "compiling command-t..."
 
-environment = 'ARCHFLAGS="-Wno-error=unused-command-line-argument-hard-error-in-future"'
-command_t_path = File.join 'Command-T/ruby/command-t'
-rvm_init_script = 'source $HOME/.zshrc && rvm use 2.0.0'
-command_t_build_script = 'bundle && ruby extconf.rb && make'
-puts %x{zsh -c 'cd #{command_t_path} && #{rvm_init_script} && #{environment} #{command_t_build_script}'}
+#environment = 'ARCHFLAGS="-Wno-error=unused-command-line-argument-hard-error-in-future"'
+#command_t_path = File.join 'Command-T/ruby/command-t'
+#rvm_init_script = 'source $HOME/.zshrc && rvm use 2.0.0'
+#command_t_build_script = 'bundle && ruby extconf.rb && make'
+#puts %x{zsh -c 'cd #{command_t_path} && #{rvm_init_script} && #{environment} #{command_t_build_script}'}
