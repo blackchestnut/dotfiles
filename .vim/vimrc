@@ -160,8 +160,19 @@ set smarttab      " insert tabs on the start of a line according to
 set noswapfile
 " gui
 syntax on
+
+"-------------------------------------------------------------------------------
+" Scheme
+"-------------------------------------------------------------------------------
 set t_Co=256
-colors ir_black_blackchestnut
+
+"1. ir_black
+"colors ir_black_blackchestnut
+
+"2. PaperColor
+set background=light
+"set background=dark
+colorscheme PaperColor
 
 "-------------------------------------------------------------------------------
 " Fonts
@@ -378,8 +389,6 @@ nmap <silent>,t :call RemoveTrailingSpaces()<cr>:echo 'trailing spaces have been
 " NerdTree
 map <silent> <leader>n :NERDTreeToggle<cr>
 map <silent> <leader>N :NERDTreeFind<cr>
-
-
 " Beginning of line
 nmap <s-h> <c-0>eb
 vmap <s-h> <c-0>eb
