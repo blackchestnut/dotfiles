@@ -1,55 +1,32 @@
+#-----------------------------------------------------------------------------------------
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
-export LANGUAGE="en_US:en"
-export LC_MESSAGES="en_US.UTF-8"
-export LC_CTYPE="en_US.UTF-8"
-export LC_COLLATE="en_US.UTF-8"
-export NODE_PATH=/usr/local/lib/node_modules
+#-----------------------------------------------------------------------------------------
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
+HISTSIZE=100000
+HISTFILESIZE=200000
+TERM="xterm-256color"
+ZSH=$HOME/.oh-my-zsh
+source $ZSH/oh-my-zsh.sh
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(rails ruby bundler capistrano gem osx zeus rvm ssh-agent rake brew command-not-found compleat composer cp history history-substring-search git-remote-branch git git-flow git-extras github pow)
 
-HISTSIZE=100000
-HISTFILESIZE=200000
-TERM="xterm-256color"
-
-source $ZSH/oh-my-zsh.sh
-
 #-----------------------------------------------------------------------------------------
 # Environment variables
 #-----------------------------------------------------------------------------------------
 
+export LANGUAGE="en_US:en"
+export LC_MESSAGES="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+export LC_COLLATE="en_US.UTF-8"
+export NODE_PATH=/usr/local/lib/node_modules
+export GOPATH=$HOME/go # Go Workspaces
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/share/npm/bin
 export PATH=/usr/local/bin:$PATH
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export GOPATH=$HOME/go # Go Workspaces
 export PATH=$PATH:$GOPATH/bin # Add Go bins to PATH for installed golang-programms
 export PATH="$HOME/.rbenv/bin:$PATH" # Add rbenv path.
 export BUNDLER_EDITOR='mvim' # For $ bundle open gem_name
@@ -128,6 +105,7 @@ alias sdeploy='cap staging deploy'
 alias deploy=pdeploy
 alias dp=pdeploy
 alias ds=sdeploy
+alias dpf='gp && dp'
 
 #-----------------------------------------------------------------------------------------
 # Process
@@ -179,6 +157,8 @@ alias hg="history | grep $1"
 alias gh=hg
 
 #-----------------------------------------------------------------------------------------
-# Startup
+# Init
 #-----------------------------------------------------------------------------------------
-eval "$(rbenv init -)"
+
+# Rbenv
+# eval "$(rbenv init -)"
