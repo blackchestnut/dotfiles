@@ -97,6 +97,7 @@ alias r='rails'
 alias rs='rails server'
 alias rc='rails console'
 alias rdb='rails dbconsole'
+alias bi='bundle install'
 alias migrate='rake db:migrate && RAILS_ENV=test rake db:migrate'
 alias rollback='rake db:rollback && rake RAILS_ENV=test db:rollback'
 alias redo="rake db:migrate:redo VERSION=$1 && RAILS_ENV=test rake db:migrate:redo VERSION=$1"
