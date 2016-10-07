@@ -370,7 +370,6 @@ map <s-k2> <pagedown>
 nmap <silent> <cr> o<Esc>
 " insert newline before current line
 nmap <silent> <s-cr> O<Esc>
-nmap <c-o> O<Esc>
 " turn off highlighting and clear messages
 nmap <silent> <space> :nohlsearch<Bar>:echo<cr>
 " autocomplete
