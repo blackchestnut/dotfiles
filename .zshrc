@@ -47,6 +47,7 @@ alias pu="cd $RALSPROJECTS/pumba"
 alias ma="cd $RALSPROJECTS/market"
 alias mp="cd $RALSPROJECTS/market_parser"
 alias ch="cd $RALSPROJECTS/chef-my/"
+alias ic="cd $RALSPROJECTS/iceperk/"
 alias mygo="cd $GOPATH/src/github.com/blackchestnut"
 cd_projects() {
   cd ~/projects/$1
