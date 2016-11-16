@@ -49,6 +49,7 @@ alias mp="cd $RALSPROJECTS/market_parser"
 alias ch="cd $RALSPROJECTS/chef/"
 alias ic="cd $RALSPROJECTS/iceperk/"
 alias co="cd $RALSPROJECTS/complead/"
+alias tr="cd $RALSPROJECTS/trantoria/"
 alias mygo="cd $GOPATH/src/github.com/blackchestnut"
 cd_projects() {
   cd ~/projects/$1
@@ -102,6 +103,7 @@ alias rdb='rails dbconsole'
 alias bi='bundle install'
 alias migrate='rake db:migrate && RAILS_ENV=test rake db:migrate'
 alias rollback='rake db:rollback && rake RAILS_ENV=test db:rollback'
+alias remigrate='rollback && migrate'
 alias redo="rake db:migrate:redo VERSION=$1 && RAILS_ENV=test rake db:migrate:redo VERSION=$1"
 alias pdeploy='cap production deploy'
 alias sdeploy='cap staging deploy'
@@ -109,6 +111,13 @@ alias deploy=pdeploy
 alias dp=pdeploy
 alias ds=sdeploy
 alias dpf='gp && dp'
+#
+#-----------------------------------------------------------------------------------------
+# Tools
+#-----------------------------------------------------------------------------------------
+#
+alias faye='rackup faye.ru -s thin -E production'
+alias ngrok='~/apps/ngrok/ngrok http 3000'
 
 #-----------------------------------------------------------------------------------------
 # Process
