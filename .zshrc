@@ -23,12 +23,15 @@ export LC_MESSAGES="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export LC_COLLATE="en_US.UTF-8"
 export NODE_PATH=/usr/local/lib/node_modules
-export GOPATH=$HOME/go # Go Workspaces
+export GOPATH=$HOME/go        # Go Workspaces
+export PATH=$PATH:$GOPATH/bin # Add Go bins to PATH for installed golang-programms
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/share/npm/bin
 export PATH=/usr/local/bin:$PATH
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH=$PATH:$GOPATH/bin # Add Go bins to PATH for installed golang-programms
 export PATH="$HOME/.rbenv/bin:$PATH" # Add rbenv path.
+export ANDROID_HOME=~/Library/Android/sdk          # React Native for Android
+export PATH=${PATH}:${ANDROID_HOME}/tools          #
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools #
 export BUNDLER_EDITOR='mvim' # For $ bundle open gem_name
 source ~/.environments
 
