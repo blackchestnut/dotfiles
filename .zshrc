@@ -71,7 +71,6 @@ alias reload='. ~/.zshrc'
 
 alias linode_0='ssh deploy@178.79.173.247'
 alias linode_agile='ssh deploy@173.255.204.93'
-alias shikimori='ssh devops@78.46.50.20'
 
 #-----------------------------------------------------------------------------------------
 # Git
@@ -114,7 +113,8 @@ alias deploy=pdeploy
 alias dp=pdeploy
 alias ds=sdeploy
 alias dpf='gp && dp'
-#
+alias rake='noglob rake'
+
 #-----------------------------------------------------------------------------------------
 # Tools
 #-----------------------------------------------------------------------------------------
