@@ -41,18 +41,16 @@ source ~/.environments
 
 RALSPROJECTS="~/projects"
 alias my="cd $RALSPROJECTS/mybudget"
-alias shi="cd $RALSPROJECTS/shikimori.org/shikimori"
 alias vi="cd $RALSPROJECTS/vimocean"
 alias ag="cd $RALSPROJECTS/agileseason"
 alias tt="cd $RALSPROJECTS/trantoria"
-alias na="cd $RALSPROJECTS/nala"
-alias pu="cd $RALSPROJECTS/pumba"
 alias ma="cd $RALSPROJECTS/market"
 alias mp="cd $RALSPROJECTS/market_parser"
-alias ch="cd $RALSPROJECTS/chef/"
-alias ic="cd $RALSPROJECTS/iceperk/"
-alias co="cd $RALSPROJECTS/complead/"
-alias tr="cd $RALSPROJECTS/trantoria/"
+alias ch="cd $RALSPROJECTS/chef"
+alias ic="cd $RALSPROJECTS/iceperk"
+alias ica="cd $RALSPROJECTS/iceperkapp"
+alias co="cd $RALSPROJECTS/complead"
+alias tr="cd $RALSPROJECTS/trantoria"
 alias mygo="cd $GOPATH/src/github.com/blackchestnut"
 cd_projects() {
   cd ~/projects/$1
