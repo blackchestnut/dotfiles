@@ -443,7 +443,9 @@ map ,<space> <plug>NERDCommenterToggle
 " generation of complementary brackets
 "-------------------------------------------------------------------------------
 
-inoremap {{ {<Space><Space>}<Esc>hi
+"inoremap {{ {<Space><Space>}<Esc>hi
+inoremap {{ {}<Esc>i
+inoremap {{{ {{}}<Esc>hi
 inoremap (( ()<Esc>i
 
 " menu
