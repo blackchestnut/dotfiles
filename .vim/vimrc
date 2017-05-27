@@ -894,6 +894,9 @@ set completeopt+=longest
 let g:rjscomplete_library = 'jQuery_1.4'
 let g:rjscomplete_find_in_prototype = 0
 
+" javascript-libraries-syntax.vim
+let g:used_javascript_libs = 'react,underscore,jquery,d3'
+
 " used to make vim default 'man' viewer
 " see http://vim.wikia.com/wiki/Using_vim_as_a_man-page_viewer_under_Unix
 let $PAGER=''

@@ -5,32 +5,26 @@ require 'open-uri'
 git_bundles = %w[
   ap/vim-css-color
   bkad/CamelCaseMotion
-  bling/vim-airline
-  briancollins/vim-jst
   cakebaker/scss-syntax.vim
   elzr/vim-json
   fatih/vim-go
-  jeetsukumaran/vim-buffergator
   kchmck/vim-coffee-script
   keithbsmiley/rspec.vim
   majutsushi/tagbar
   ngmy/vim-rubocop
+  othree/javascript-libraries-syntax.vim
   plasticboy/vim-markdown
   saks/Specky
   scrooloose/nerdcommenter
   scrooloose/nerdtree
   scrooloose/syntastic
   slim-template/vim-slim
-  sstephenson/eco
   tpope/vim-endwise
-  tpope/vim-fugitive
   tpope/vim-haml
   tpope/vim-rails
   tpope/vim-surround
-  tpope/vim-unimpaired
+  vim-airline/vim-airline
   vim-ruby/vim-ruby
-  vim-scripts/grep.vim
-  vim-scripts/vimgrep.vim
   wincent/Command-T
 ]
 
