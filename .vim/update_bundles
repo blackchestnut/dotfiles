@@ -2,6 +2,7 @@
 require 'fileutils'
 require 'open-uri'
 
+# wincent/Command-T
 git_bundles = %w[
   ap/vim-css-color
   bkad/CamelCaseMotion
@@ -25,10 +26,9 @@ git_bundles = %w[
   tpope/vim-surround
   vim-airline/vim-airline
   vim-ruby/vim-ruby
-  wincent/Command-T
 ]
 
-git_keep = []
+git_keep = ['Command-T']
 
 bundles_dir = File.join(File.dirname(__FILE__), 'bundle')
 

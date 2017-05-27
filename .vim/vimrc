@@ -2,31 +2,12 @@ let mapleader = ";"
 let g:vimrubocop_config = '~/.vim/configs/rubocop/default.yml'
 
 "-----------------------------------------------------------------------------
-"  Buffergator
-"-----------------------------------------------------------------------------
-let g:buffergator_suppress_keymaps = 1
-nnoremap <silent> <Leader>b :BuffergatorOpen<CR>
-"nnoremap <silent> <Leader>B :BuffergatorClose<CR>
-"nnoremap <silent> <Leader>t :BuffergatorTabsOpen<CR>
-"nnoremap <silent> <Leader>T :BuffergatorTabsClose<CR>
-
-"-----------------------------------------------------------------------------
 " pathogen
 "-----------------------------------------------------------------------------
 filetype off
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 filetype on
-
-"-----------------------------------------------------------------------------
-" fugitive
-"-----------------------------------------------------------------------------
-autocmd User fugitive
-  \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
-  \   nnoremap <buffer> .. :edit %:h<CR> |
-  \ endif
-autocmd BufReadPost fugitive://* set bufhidden=delete
-set diffopt+=vertical
 
 "-------------------------------------------------------------------------------
 " syntastic
@@ -70,7 +51,7 @@ let g:CommandTWildIgnore = &wildignore."*.o,*.obj,.git,.svn,*.png,*.jpg,.DS_Stor
 
 nmap <silent> <leader>t :CommandT<cr>
 nmap <silent> <leader>r :CommandTFlush<cr>:CommandT<cr>
-nmap <silent> <leader>j :CommandTJump<CR>
+nmap <silent> <leader>j :CommandTJump<cr>
 
 "-------------------------------------------------------------------------------
 " vim-markdown
@@ -107,6 +88,38 @@ let g:rails_projections = {
 \   'config/locales/*.en.yml': {
 \     'alternate': 'config/locales/{}.ru.yml'
 \   }
+\ }
+
+
+"-------------------------------------------------------------------------------
+" javascript-libraries-syntax.vim
+"-------------------------------------------------------------------------------
+let g:used_javascript_libs = 'react,underscore,jquery,d3'
+
+"-------------------------------------------------------------------------------
+" Tagbar
+"-------------------------------------------------------------------------------
+nnoremap <silent> <Leader>b :TagbarToggle<cr><C-w><C-w>
+let g:tagbar_map_jump = 'o'
+let g:tagbar_map_showproto = '<cr>'
+let g:tagbar_map_togglefold = '<space>'
+let g:tagbar_type_ruby = {
+    \ 'kinds' : [
+        \ 'm:modules',
+        \ 'c:classes',
+        \ 'd:describes',
+        \ 'C:contexts',
+        \ 'f:methods',
+        \ 'F:singleton methods'
+    \ ]
+\ }
+let g:tagbar_type_markdown = {
+    \ 'ctagstype' : 'markdown',
+    \ 'kinds' : [
+        \ 'h:Heading_L1',
+        \ 'i:Heading_L2',
+        \ 'k:Heading_L3'
+    \ ]
 \ }
 
 "-----------------------------------------------------------------------------
@@ -402,17 +415,7 @@ nmap <f2> :NERDTreeFind<cr>
 nmap <f3> :BuffergatorToggle<cr>
 let g:speckySpecSwitcherKey="<f4>"
 nmap gs <c-w><c-v><c-w>l<f4>
-" Git
-nnoremap <f5> :Gcommit<cr>
-inoremap <f5> <c-O>:Gcommit<cr>
-vnoremap <f5> <esc>:Gcommit<cr>
-nnoremap <f6> :Gdiff<cr>
-inoremap <f6> <c-O>:Gdiff<cr>
-vnoremap <f6> <esc>:Gdiff<cr>
 " Tags
-nnoremap <f10> :TagbarToggle<cr>
-inoremap <f10> <c-O>:TagbarToggle<cr>
-vnoremap <f10> <esc>:TagbarToggle<cr>
 nnoremap <f12> :emenu Tags.<tab>
 inoremap <f12> <c-O>:emenu Tags.<tab>
 vnoremap <f12> <esc>:emenu Tags.<tab>
@@ -484,7 +487,7 @@ anoremenu &File.&Preview.&Midori :!midori %<cr>
 " tag list
 anoremenu &Tags.&Tagbar :TagbarToggle<cr>
 anoremenu &Tags.&TagList :TlistToggle<cr>
-anoremenu &Tags.&ctags :exec("!ctags -R --fields=+zitKSla --extra=+q --exclude=.svn --exclude=fckeditor --exclude=editor --exclude=ckeditor --exclude=ckfinder --exclude=suilib_packed.js --exclude=jquery-1.3.2.min.js --exclude=jquery.plugins.js --exclude=highslide.packed.js --exclude=sui.js --exclude=codemirror --exclude=jTweener.js --exclude=swfobject.js --exclude=community_map.packed.js --exclude=order_base.packed.js --exclude=special_header.packed.js --exclude=prototype-1.4.0.js --exclude=raphael-min.js  --exclude=frontend.js --exclude=packed.js .")<cr>
+anoremenu &Tags.&ctags :exec("!ctags -R --extra=+q --exclude=log --exclude=vendor --exclude=tmp --exclude=public --exclude=.git --exclude=.env --exclude=.rspec .")<cr>
 if has("unix")
   anoremenu &Tags.&rjstags :exec("!ruby ~/.vim/bin/rjstags/rjstags.rb .")<cr>
   anoremenu &Tags.&rjstags\ file :exec("!ruby ~/.vim/bin/rjstags/rjstags.rb %")<cr>
@@ -893,9 +896,6 @@ set completeopt+=longest
 " javascript omnicomplete
 let g:rjscomplete_library = 'jQuery_1.4'
 let g:rjscomplete_find_in_prototype = 0
-
-" javascript-libraries-syntax.vim
-let g:used_javascript_libs = 'react,underscore,jquery,d3'
 
 " used to make vim default 'man' viewer
 " see http://vim.wikia.com/wiki/Using_vim_as_a_man-page_viewer_under_Unix
