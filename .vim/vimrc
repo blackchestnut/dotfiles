@@ -98,8 +98,11 @@ let g:used_javascript_libs = 'react,underscore,jquery,d3'
 
 "-------------------------------------------------------------------------------
 " Tagbar
+" https://github.com/majutsushi/tagbar/blob/master/doc/tagbar.txt
 "-------------------------------------------------------------------------------
-nnoremap <silent> <Leader>b :TagbarToggle<cr><C-w><C-w>
+nnoremap <silent> <Leader>b :TagbarToggle<cr>
+let g:tagbar_autofocus = 1
+let g:tagbar_autoclose = 1
 let g:tagbar_map_jump = 'o'
 let g:tagbar_map_showproto = '<cr>'
 let g:tagbar_map_togglefold = '<space>'
@@ -554,9 +557,6 @@ au BufNewFile,BufRead *.rb set makeprg=ruby\ -c\ %
 " Run Ruby unit tests with rT (for all) or rt (only test under cursor) in command mode
 "autocmd BufRead,BufNewFile *.rb :nmap rt :<C-U>w<CR>:!rake test:units TEST=%<CR>
 "autocmd BufRead,BufNewFile *.rb :nmap rT :<C-U>w<CR>:!rake test<CR>
-
-"au BufNewFile,BufRead *.cpp map <c-f12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<cr>
-"au BufNewFile,BufRead *.cpp,*.h set tags+=~/.vimdata/c++/unix/std/tags
 
 au BufNewFile,BufRead *.ass,*.ssa set filetype=ssa
 
