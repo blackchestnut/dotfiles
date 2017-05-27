@@ -51,6 +51,8 @@ alias ic="cd $RALSPROJECTS/iceperk"
 alias ica="cd $RALSPROJECTS/iceperkapp"
 alias co="cd $RALSPROJECTS/complead"
 alias tr="cd $RALSPROJECTS/trantoria"
+alias as="cd $RALSPROJECTS/fork-amazing-supplies"
+alias asa="cd $RALSPROJECTS/asapp"
 alias mygo="cd $GOPATH/src/github.com/blackchestnut"
 cd_projects() {
   cd ~/projects/$1
@@ -80,7 +82,8 @@ alias gd='git diff HEAD --color'
 alias gd1='git diff HEAD~1 --color'
 alias gd2='git diff HEAD~2 --color'
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s - %C(bold blue)%an%Creset, %Cgreen%cr' --abbrev-commit"
-alias gu='git-up' # https://github.com/aanand/git-up
+# alias gu='git-up' # https://github.com/aanand/git-up
+alias gu='git fetch && git pull --rebase' # https://github.com/aanand/git-up
 alias gp='git push'
 alias gb="git checkout -b $1"
 alias gch="git checkout $1"
@@ -116,9 +119,15 @@ alias rake='noglob rake'
 #-----------------------------------------------------------------------------------------
 # Tools
 #-----------------------------------------------------------------------------------------
-#
+
 alias faye='rackup faye.ru -s thin -E production'
 alias ngrok='~/apps/ngrok/ngrok http 3000'
+
+#-----------------------------------------------------------------------------------------
+# React Native
+#-----------------------------------------------------------------------------------------
+
+alias buildAndroidRelease='cd android && ./gradlew assembleRelease && cd .. && cd android/app/build/outputs/apk && open .'
 
 #-----------------------------------------------------------------------------------------
 # Process

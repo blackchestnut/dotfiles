@@ -1,6 +1,7 @@
 # Files
 # -----------------
 
+*slash.json
 .CFUserTextEncoding
 .DS_Store
 .NERDTreeBookmarks
@@ -8,6 +9,7 @@
 .bash_history
 .bash_login
 .bashrc
+.config/mc/ini
 .emulator_console_auth_token
 .environments
 .gemrc
@@ -59,12 +61,15 @@
 .chefdk/
 .codeintel/
 .config/
+.cordova/
 .dropbox/
 .gem/
 .gnupg/
 .gradle/
 .gsutil/
 .hex/
+.ionic/
+.itmstransporter/
 .local/
 .m2/
 .mix/
@@ -73,6 +78,7 @@
 .oracle_jre_usage/
 .phantomjs/
 .pow
+.putty/
 .rbenv/
 .rvm/
 .subversion/
@@ -82,7 +88,7 @@ Backup/
 Desktop/
 Documents/
 Downloads/
-Dropbox/
+Dropbox*
 Library/
 Movies/
 Music/
