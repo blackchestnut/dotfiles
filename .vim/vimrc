@@ -1,5 +1,12 @@
-let mapleader = ";"
+let mapleader = ';'
 let g:vimrubocop_config = '~/.vim/configs/rubocop/default.yml'
+
+"-----------------------------------------------------------------------------
+" clipboard (unix only)
+" NOTE: win32 http://vim.wikia.com/wiki/Copy_filename_to_clipboard
+"-----------------------------------------------------------------------------
+nmap ,cs :let @*=expand("%")<CR>
+nmap ,cl :let @*=expand("%:p")<CR>
 
 "-----------------------------------------------------------------------------
 " pathogen
