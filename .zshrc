@@ -29,9 +29,11 @@ export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/share/
 export PATH=/usr/local/bin:$PATH
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$HOME/.rbenv/bin:$PATH" # Add rbenv path.
-export ANDROID_HOME=~/Library/Android/sdk          # React Native for Android
-export PATH=${PATH}:${ANDROID_HOME}/tools          #
-export PATH=${PATH}:${ANDROID_HOME}/platform-tools #
+export ANDROID_HOME=/usr/local/share/android-sdk     # React Native for Android
+export ANDROID_SDK_ROOT=ANDROID_HOME                 #
+export PATH=${PATH}:${ANDROID_HOME}/tools            # - android
+export PATH=${PATH}:${ANDROID_HOME}/tools/bin        # - sdkmanager and avdmanager
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools   # - adb (Android Debug Bridge)
 export BUNDLER_EDITOR='mvim' # For $ bundle open gem_name
 source ~/.environments
 
@@ -177,6 +179,13 @@ alias dirsize='du -h -d 1 | sort -r'
 
 alias hg="history | grep $1"
 alias gh=hg
+
+#-----------------------------------------------------------------------------------------
+# React Native
+#-----------------------------------------------------------------------------------------
+
+alias emulator='cd /usr/local/share/android-sdk/emulator && ./emulator'
+alias avd='emulator -avd Nexus_5X_API_23_x86_64 -gpu host -skin 1080x1920'
 
 #-----------------------------------------------------------------------------------------
 # Init
