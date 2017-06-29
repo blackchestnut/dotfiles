@@ -75,6 +75,7 @@ let g:vim_markdown_frontmatter = 1
 
 nmap <Leader>, :A<CR>
 nmap <Leader>v :AV<CR>
+nmap gs :AV<cr>
 
 let g:rails_projections = {
 \   'app/admin/*.rb': {
@@ -424,7 +425,6 @@ nmap ,<f1>r :CommandTFlush<cr>:CommandT<cr>
 nmap <f2> :NERDTreeFind<cr>
 nmap <f3> :BuffergatorToggle<cr>
 let g:speckySpecSwitcherKey="<f4>"
-nmap gs <c-w><c-v><c-w>l<f4>
 " Tags
 nnoremap <f12> :emenu Tags.<tab>
 inoremap <f12> <c-O>:emenu Tags.<tab>
