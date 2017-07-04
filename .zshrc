@@ -66,6 +66,8 @@ alias pr=cd_projects
 #-----------------------------------------------------------------------------------------
 
 alias reload='. ~/.zshrc'
+alias mzsh='mvim ~/.zshrc'
+alias mvimrc='mvim ~/.vim/vimrc'
 
 #-----------------------------------------------------------------------------------------
 # ssh
@@ -129,7 +131,8 @@ alias ngrok='~/apps/ngrok/ngrok http 3000'
 # React Native
 #-----------------------------------------------------------------------------------------
 
-alias buildAndroidRelease='cd android && ./gradlew assembleRelease && cd .. && cd android/app/build/outputs/apk && open .'
+alias react-native-android-release='cd android && ./gradlew assembleRelease && cd .. && cd android/app/build/outputs/apk && open .'
+alias react-native-clean='rm -fr $TMPDIR/react-* && watchman watch-del-all && npm cache clean --force && npm i'
 
 #-----------------------------------------------------------------------------------------
 # Process

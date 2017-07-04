@@ -80,6 +80,7 @@
 .pow
 .putty/
 .rbenv/
+.rncache/
 .rvm/
 .subversion/
 .vim_backups/
