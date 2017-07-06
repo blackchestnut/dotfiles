@@ -36,6 +36,7 @@
 .viminfo
 .vimrc
 .world_art_parser.yml
+.yarnrc
 .zcompdump*
 .zlogin
 .zsh*

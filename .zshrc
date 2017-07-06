@@ -35,6 +35,7 @@ export PATH=${PATH}:${ANDROID_HOME}/tools            # - android
 export PATH=${PATH}:${ANDROID_HOME}/tools/bin        # - sdkmanager and avdmanager
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools   # - adb (Android Debug Bridge)
 export BUNDLER_EDITOR='mvim' # For $ bundle open gem_name
+export REACT_EDITOR='mvim'
 source ~/.environments
 
 #-----------------------------------------------------------------------------------------
@@ -66,6 +67,7 @@ alias pr=cd_projects
 #-----------------------------------------------------------------------------------------
 
 alias reload='. ~/.zshrc'
+alias m='mvim'
 alias mzsh='mvim ~/.zshrc'
 alias mvimrc='mvim ~/.vim/vimrc'
 
@@ -132,7 +134,7 @@ alias ngrok='~/apps/ngrok/ngrok http 3000'
 #-----------------------------------------------------------------------------------------
 
 alias react-native-android-release='cd android && ./gradlew assembleRelease && cd .. && cd android/app/build/outputs/apk && open .'
-alias react-native-clean='rm -fr $TMPDIR/react-* && watchman watch-del-all && npm cache clean --force && npm i'
+alias react-native-clean='watchman watch-del-all && yarn cache clean && rm -rf node_modules && rm -rf $TMPDIR/react-*  && yarn'
 
 #-----------------------------------------------------------------------------------------
 # Process
