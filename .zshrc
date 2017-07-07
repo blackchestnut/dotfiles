@@ -83,23 +83,26 @@ alias linode_agile='ssh deploy@173.255.204.93'
 #-----------------------------------------------------------------------------------------
 
 alias g='git'
-alias gs='git status'
-alias gd='git diff HEAD --color'
+alias ga="git add $1"
+alias gaa='git add -A'
+alias gb="git checkout -b $1"
+alias gc="git commit -m $1"
+alias gcc="git commit --amend -m $1"
+alias gch="git checkout $1"
 alias gd1='git diff HEAD~1 --color'
 alias gd2='git diff HEAD~2 --color'
+alias gd3='git diff HEAD~3 --color'
+alias gd='git diff HEAD --color'
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s - %C(bold blue)%an%Creset, %Cgreen%cr' --abbrev-commit"
-# alias gu='git-up' # https://github.com/aanand/git-up
-alias gu='git fetch && git pull --rebase' # https://github.com/aanand/git-up
-alias gp='git push'
-alias gb="git checkout -b $1"
-alias gch="git checkout $1"
-alias gaa='git add -A'
-alias ga="git add $1"
-alias gc="git commit -m $1"
 alias gm='git mergetool'
-alias gra='git reset --hard && git clean -f'
-alias master='git checkout master && gu'
+alias gp='git push'
+alias grh='git reset --hard && git clean -f'
+alias gs='git status'
+alias gu='git fetch && git pull --rebase' # https://github.com/aanand/git-up
 alias develop='git checkout develop && gu'
+alias master='git checkout master && gu'
+alias pull=gu
+alias push=gp
 
 #-----------------------------------------------------------------------------------------
 # Rails
@@ -119,7 +122,6 @@ alias sdeploy='cap staging deploy'
 alias deploy=pdeploy
 alias dp=pdeploy
 alias ds=sdeploy
-alias dpf='gp && dp'
 alias rake='noglob rake'
 
 #-----------------------------------------------------------------------------------------
@@ -135,6 +137,8 @@ alias ngrok='~/apps/ngrok/ngrok http 3000'
 
 alias react-native-android-release='cd android && ./gradlew assembleRelease && cd .. && cd android/app/build/outputs/apk && open .'
 alias react-native-clean='watchman watch-del-all && yarn cache clean && rm -rf node_modules && rm -rf $TMPDIR/react-*  && yarn'
+alias ipad='react-native run-ios --simulator="iPad Air"'
+alias iphone='react-native run-ios --simulator="iPhone 5"'
 
 #-----------------------------------------------------------------------------------------
 # Process
