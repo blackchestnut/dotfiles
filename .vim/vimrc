@@ -1,24 +1,49 @@
 let mapleader = ';'
-let g:vimrubocop_config = '~/.vim/configs/rubocop/default.yml'
 
-"-----------------------------------------------------------------------------
-" clipboard (unix only)
+"-------------------------------------------------------------------------------
+" Clipboard (unix only)
 " NOTE: win32 http://vim.wikia.com/wiki/Copy_filename_to_clipboard
-"-----------------------------------------------------------------------------
+"-------------------------------------------------------------------------------
 nmap ,cs :let @*=expand("%")<CR>
 nmap ,cl :let @*=expand("%:p")<CR>
 
-"-----------------------------------------------------------------------------
-" pathogen
-"-----------------------------------------------------------------------------
+"-------------------------------------------------------------------------------
+" Pathogen
+"-------------------------------------------------------------------------------
 filetype off
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 filetype on
 
 "-------------------------------------------------------------------------------
-" syntastic
+" NerdTree (NERD)
 "-------------------------------------------------------------------------------
+let g:NERDCreateDefaultMappings = 0
+let g:NERDSpaceDelims = 0
+let g:NERDDefaultAlign = 'left'
+
+map <Leader><Space> <Plug>NERDCommenterToggle
+map <silent> <leader>n :NERDTreeToggle<cr>
+map <silent> <leader>N :NERDTreeFind<cr>
+
+"-------------------------------------------------------------------------------
+" NERDCommenter
+"-------------------------------------------------------------------------------
+map ,<space> <plug>NERDCommenterToggle
+
+"-------------------------------------------------------------------------------
+" Syntastic
+"-------------------------------------------------------------------------------
+nmap <silent> <Leader>cc :SyntasticCheck<CR>
+nmap <silent> <Leader>cr :SyntasticReset<CR>
+
+let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
+let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_mode_map = {
+      \   'mode': 'passive',
+      \   'active_filetypes': [],
+      \   'passive_filetypes': []
+      \ }
 let g:syntastic_ruby_mri_exec = '~/.rvm/rubies/ruby-2.3.0/bin/ruby'
 
 " http://vim.wikia.com/wiki/Simplifying_regular_expressions_using_magic_and_no-magic
@@ -37,20 +62,30 @@ let g:syntastic_json_checkers=['jsonlint'] " npm install -g jsonlint
 let g:vim_json_syntax_conceal = 0
 let g:syntastic_sass_checkers=[]
 
-"-----------------------------------------------------------------------------
+"-------------------------------------------------------------------------------
+" javascript-libraries-syntax.vim
+"-------------------------------------------------------------------------------
+let g:used_javascript_libs = 'react,underscore,jquery,d3'
+
+"-------------------------------------------------------------------------------
+" Robocop
+"-------------------------------------------------------------------------------
+let g:vimrubocop_config = '~/.vim/configs/rubocop/default.yml'
+
+"-------------------------------------------------------------------------------
 " matchit
-"-----------------------------------------------------------------------------
+"-------------------------------------------------------------------------------
 runtime macros/matchit.vim
 
-"-----------------------------------------------------------------------------
+"-------------------------------------------------------------------------------
 " powerline
-"-----------------------------------------------------------------------------
+"-------------------------------------------------------------------------------
 let g:airline_powerline_fonts = 1
 set laststatus=2
 
-"-----------------------------------------------------------------------------
+"-------------------------------------------------------------------------------
 " Command-T
-"-----------------------------------------------------------------------------
+"-------------------------------------------------------------------------------
 let g:CommandTMatchWindowReverse = 0
 let g:CommandTMaxHeight = 17
 let g:CommandTMaxFiles = 25000
@@ -98,12 +133,6 @@ let g:rails_projections = {
 \   }
 \ }
 
-
-"-------------------------------------------------------------------------------
-" javascript-libraries-syntax.vim
-"-------------------------------------------------------------------------------
-let g:used_javascript_libs = 'react,underscore,jquery,d3'
-
 "-------------------------------------------------------------------------------
 " Tagbar
 " https://github.com/majutsushi/tagbar/blob/master/doc/tagbar.txt
@@ -133,9 +162,31 @@ let g:tagbar_type_markdown = {
     \ ]
 \ }
 
-"-----------------------------------------------------------------------------
+"-------------------------------------------------------------------------------
+" QFEnter
+"-------------------------------------------------------------------------------
+
+" To open search window in new tab set 1
+let g:qfenter_enable_autoquickfix = 0
+
+let g:qfenter_keymap = {}
+let g:qfenter_keymap.open = ['<CR>']
+let g:qfenter_keymap.open_keep = ['<S-CR>']
+let g:qfenter_keymap.hopen = ['<C-s>']
+let g:qfenter_keymap.vopen = ['<C-v>']
+let g:qfenter_keymap.topen = ['<C-t>']
+
+"-------------------------------------------------------------------------------
+" ag.vim
+"-------------------------------------------------------------------------------
+
+let g:ag_mapping_message = 0
+let g:ag_prg = 'ag --vimgrep --literal'
+map <Leader>/ :LAg!<Space>
+
+"-------------------------------------------------------------------------------
 " options
-"-----------------------------------------------------------------------------
+"-------------------------------------------------------------------------------
 set nocompatible
 set backup
 set nowrap
@@ -410,9 +461,6 @@ vmap <silent>* <esc>:call VisualSearch('/')<cr>/<c-R>/<cr>
 vmap <silent># <esc>:call VisualSearch('?')<cr>?<c-R>/<cr>
 " Trailing Spaces
 nmap <silent>,t :call RemoveTrailingSpaces()<cr>:echo 'trailing spaces have been removed'<cr>
-" NerdTree
-map <silent> <leader>n :NERDTreeToggle<cr>
-map <silent> <leader>N :NERDTreeFind<cr>
 " Beginning of line
 nmap <s-h> <c-0>eb
 vmap <s-h> <c-0>eb
@@ -449,11 +497,9 @@ nnoremap <silent><leader>'  :<C-U>call <SID>ToggleQuote()<CR>
 nnoremap <silent><leader>"  :<C-U>call <SID>ToggleDoubleQuote()<CR>
 
 map <c-\> :tab split<cr>:exec("tag ".expand("<cword>"))<cr>
-" NERDCommenter
-map ,<space> <plug>NERDCommenterToggle
 
 "-------------------------------------------------------------------------------
-" generation of complementary brackets
+" Generation of complementary brackets
 "-------------------------------------------------------------------------------
 
 "inoremap {{ {<Space><Space>}<Esc>hi
@@ -885,8 +931,6 @@ let g:rubycomplete_include_object = 1
 let g:rubycomplete_include_objectspace = 1
 let g:rubycomplete_rails = 1
 
-" Matchit
-"let b:match_words = '<:>,<tag>:</tag>'
 " SessionMgr
 let g:SessionMgr_AutoManage = 0
 let g:SessionMgr_DefaultName = "last"

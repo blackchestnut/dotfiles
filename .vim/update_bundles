@@ -20,12 +20,14 @@ git_bundles = %w[
   scrooloose/nerdtree
   scrooloose/syntastic
   slim-template/vim-slim
+  tap349/ag.vim
   tpope/vim-endwise
   tpope/vim-haml
   tpope/vim-rails
   tpope/vim-surround
   vim-airline/vim-airline
   vim-ruby/vim-ruby
+  yssl/QFEnter
 ]
 
 git_keep = ['Command-T']
