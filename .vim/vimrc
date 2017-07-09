@@ -182,7 +182,7 @@ let g:qfenter_keymap.topen = ['<C-t>']
 
 let g:ag_mapping_message = 0
 let g:ag_prg = 'ag --vimgrep --literal'
-map <Leader>/ :LAg!<Space>
+map <Leader>s :LAg!<Space>
 
 "-------------------------------------------------------------------------------
 " options

@@ -14,6 +14,7 @@ brew 'htop'
 # brew 'rbenv'
 brew 'rbenv-ctags'
 # brew 'redis', restart_service: :changed
+brew 'the_silver_searcher'
 # brew 'watchman'
 # brew 'wget'
 # brew 'zsh'
