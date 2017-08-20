@@ -46,6 +46,7 @@ RALSPROJECTS="~/projects"
 alias my="cd $RALSPROJECTS/mybudget"
 alias vi="cd $RALSPROJECTS/vimocean"
 alias ag="cd $RALSPROJECTS/agileseason"
+alias ag2="cd $RALSPROJECTS/agileseason2"
 alias tt="cd $RALSPROJECTS/trantoria"
 alias ma="cd $RALSPROJECTS/market"
 alias mp="cd $RALSPROJECTS/market_parser"
@@ -130,6 +131,12 @@ alias rake='noglob rake'
 
 alias faye='rackup faye.ru -s thin -E production'
 alias ngrok='~/apps/ngrok/ngrok http 3000'
+
+#-----------------------------------------------------------------------------------------
+# React
+#-----------------------------------------------------------------------------------------
+
+alias fstart='foreman start -f Procfile.dev'
 
 #-----------------------------------------------------------------------------------------
 # React Native

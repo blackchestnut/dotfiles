@@ -40,6 +40,7 @@
 .zcompdump*
 .zlogin
 .zsh*
+default.txaPackage
 
 .vim/.sessions
 .vim/_bundle

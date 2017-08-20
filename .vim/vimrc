@@ -1,6 +1,17 @@
 let mapleader = ';'
 
 "-------------------------------------------------------------------------------
+" fold
+" NOTE: Collapse the method body
+"-------------------------------------------------------------------------------
+nmap <Backspace> za
+set foldenable
+set foldlevelstart=10
+" syntax folding might not work in some cases (e.g. in spec files)
+set foldmethod=indent
+set foldnestmax=10
+
+"-------------------------------------------------------------------------------
 " Clipboard (unix only)
 " NOTE: win32 http://vim.wikia.com/wiki/Copy_filename_to_clipboard
 "-------------------------------------------------------------------------------
@@ -89,7 +100,7 @@ set laststatus=2
 let g:CommandTMatchWindowReverse = 0
 let g:CommandTMaxHeight = 17
 let g:CommandTMaxFiles = 25000
-let g:CommandTWildIgnore = &wildignore."*.o,*.obj,.git,.svn,*.png,*.jpg,.DS_Store,*.log,public/uploads/**,public/images/**,public/system/images/**,public/assets/**,tmp/**,node_modules/**,android/app/build/**,ios/build/**"
+let g:CommandTWildIgnore = &wildignore."*.o,*.obj,.git,.svn,*.png,*.jpg,.DS_Store,*.log,public/uploads/**,public/images/**,public/system/images/**,public/assets/**,tmp/**,client/node_modules,node_modules/**,android/app/build/**,ios/build/**"
 
 nmap <silent> <leader>t :CommandT<cr>
 nmap <silent> <leader>r :CommandTFlush<cr>:CommandT<cr>
@@ -579,47 +590,24 @@ else
   autocmd! bufwritepost $VIM/_vimrc source $VIM/_vimrc
 endif
 
+"-------------------------------------------------------------------------------
+" File Types
+"-------------------------------------------------------------------------------
 au BufRead,BufNewFile *.scss set filetype=scss
-"au BufNewFile,BufRead *.scss set filetype=css
+au BufRead,BufNewFile *_spec.rb set filetype=rspec
 au BufNewFile,BufRead *.json set filetype=javascript
 au BufNewFile,BufRead *.slim set filetype=slim
 au BufNewFile,BufRead *.json set filetype=json
-
-" coffeescript
-"au BufWritePost *.coffee silent make! -b | cwindow | redraw!
-"au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
-"au BufWritePost *.coffee silent exec('!rm '.substitute(shellescape(expand('%')), '.coffee', '.js', '').' > /dev/null 2>&1')
-"au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
-
-au BufNewFile,BufRead *.ctp set filetype=phtml
-au BufNewFile,BufRead *.php,*.phtml set dict+=~/.vimdata/php/keywords
-
-"au BufNewFile,BufRead *.rb map <s-k> :call TryRubyDoc()<cr>
-"if has("unix")
-  "au BufNewFile,BufRead *.rb map <f9> <esc>:w<cr>:!./%<cr>
-"else
-  "au BufNewFile,BufRead *.rb map <f9> <esc>:w<cr>:!%<cr>
-"endif
-
-au BufRead,BufNewFile *_spec.rb set filetype=rspec
-
+au BufNewFile,BufRead *.json.jb set filetype=ruby
 au BufNewFile,BufRead *.rb set makeprg=ruby\ -c\ %
-"au BufNewFile,BufRead *.rb nnoremap <c-f12> :Rtags<cr>
-"au BufNewFile,BufRead *.rb nnoremap <c-f12> :!rake mactag<cr>
-
-" Run Ruby unit tests with rT (for all) or rt (only test under cursor) in command mode
-"autocmd BufRead,BufNewFile *.rb :nmap rt :<C-U>w<CR>:!rake test:units TEST=%<CR>
-"autocmd BufRead,BufNewFile *.rb :nmap rT :<C-U>w<CR>:!rake test<CR>
-
 au BufNewFile,BufRead *.ass,*.ssa set filetype=ssa
-
 " syntax highlight fix for brackets
 au BufNewFile,BufRead * syn match rubyParens "[()\[\]]"
-
 au FileType go set nolist
-"-----------------------------------------------------------------------------
+
+"-------------------------------------------------------------------------------
 " omni completion
-"-----------------------------------------------------------------------------
+"-------------------------------------------------------------------------------
 autocmd FileType ruby set omnifunc=rubycomplete#Complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=RjsComplete
@@ -628,6 +616,7 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
+
 "-----------------------------------------------------------------------------
 " functions
 "-----------------------------------------------------------------------------
