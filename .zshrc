@@ -137,6 +137,7 @@ alias ngrok='~/apps/ngrok/ngrok http 3000'
 #-----------------------------------------------------------------------------------------
 
 alias fstart='foreman start -f Procfile.dev'
+alias fs='fstart'
 
 #-----------------------------------------------------------------------------------------
 # React Native
@@ -144,8 +145,11 @@ alias fstart='foreman start -f Procfile.dev'
 
 alias react-native-android-release='cd android && ./gradlew assembleRelease && cd .. && cd android/app/build/outputs/apk && open .'
 alias react-native-clean='watchman watch-del-all && yarn cache clean && rm -rf node_modules && rm -rf $TMPDIR/react-*  && yarn'
+alias rclean='react-native-clean'
 alias ipad='react-native run-ios --simulator="iPad Air"'
 alias iphone='react-native run-ios --simulator="iPhone 5"'
+alias yi='yarn'
+alias ys='yarn start'
 
 #-----------------------------------------------------------------------------------------
 # Process
