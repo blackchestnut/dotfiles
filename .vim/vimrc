@@ -100,7 +100,7 @@ set laststatus=2
 let g:CommandTMatchWindowReverse = 0
 let g:CommandTMaxHeight = 17
 let g:CommandTMaxFiles = 25000
-let g:CommandTWildIgnore = &wildignore."*.o,*.obj,.git,.svn,*.png,*.jpg,.DS_Store,*.log,public/uploads/**,public/images/**,public/system/images/**,public/assets/**,tmp/**,client/node_modules,node_modules/**,android/app/build/**,ios/build/**"
+let g:CommandTWildIgnore = &wildignore."*.o,*.obj,.git,.svn,*.png,*.jpg,.DS_Store,*.log,public/uploads/**,public/images/**,public/system/images/**,public/assets/**,tmp/**,client/node_modules,node_modules/**,android/app/build/**,ios/build/**,spec/vcr_cassettes/**"
 
 nmap <silent> <leader>t :CommandT<cr>
 nmap <silent> <leader>r :CommandTFlush<cr>:CommandT<cr>
@@ -192,7 +192,7 @@ let g:qfenter_keymap.topen = ['<C-t>']
 "-------------------------------------------------------------------------------
 
 let g:ag_mapping_message = 0
-let g:ag_prg = 'ag --vimgrep --literal'
+let g:ag_prg = 'ag --vimgrep --literal --ignore-dir spec/vcr_cassettes'
 map <Leader>s :LAg!<Space>
 
 "-------------------------------------------------------------------------------
@@ -452,6 +452,12 @@ vmap <s-k6> E
 nmap <s-k6> E
 map <s-k8> <pageup>
 map <s-k2> <pagedown>
+" Beginning of line
+nmap <s-h> <c-0>^
+vmap <s-h> <c-0>^
+" End of line
+nmap <s-l> $
+vmap <s-l> $
 " insert newline after current line
 nmap <silent> <cr> o<Esc>
 " insert newline before current line
@@ -472,12 +478,6 @@ vmap <silent>* <esc>:call VisualSearch('/')<cr>/<c-R>/<cr>
 vmap <silent># <esc>:call VisualSearch('?')<cr>?<c-R>/<cr>
 " Trailing Spaces
 nmap <silent>,t :call RemoveTrailingSpaces()<cr>:echo 'trailing spaces have been removed'<cr>
-" Beginning of line
-nmap <s-h> <c-0>eb
-vmap <s-h> <c-0>eb
-" End of line
-nmap <s-l> $
-vmap <s-l> $
 
 nmap <f1> :CommandT<cr>
 nmap ,<f1>r :CommandTFlush<cr>:CommandT<cr>
