@@ -6,6 +6,8 @@ require 'open-uri'
 git_bundles = %w[
   ap/vim-css-color
   bkad/CamelCaseMotion
+  blackchestnut/ack.vim
+  brookhong/ag.vim
   cakebaker/scss-syntax.vim
   elzr/vim-json
   fatih/vim-go
@@ -20,7 +22,6 @@ git_bundles = %w[
   scrooloose/nerdtree
   scrooloose/syntastic
   slim-template/vim-slim
-  tap349/ag.vim
   tpope/vim-endwise
   tpope/vim-haml
   tpope/vim-rails
@@ -51,7 +52,7 @@ git_bundles.each do |plugin|
   FileUtils.rm_rf File.join(dir, ".git")
 end
 
-puts "compiling command-t..."
+puts "skip compiling command-t..."
 
 #environment = 'ARCHFLAGS="-Wno-error=unused-command-line-argument-hard-error-in-future"'
 #command_t_path = File.join 'Command-T/ruby/command-t'
