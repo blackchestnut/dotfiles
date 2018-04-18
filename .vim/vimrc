@@ -183,7 +183,7 @@ let g:qfenter_keymap.topen = ['<C-t>']
 
 "-------------------------------------------------------------------------------
 " ack.vim
-" rg respects ./.gitignore and ~/.ignore files
+" https://github.com/mileszs/ack.vim/blob/master/doc/ack.txt
 "-------------------------------------------------------------------------------
 "hi AckSearch guifg=#444454 gui=italic
 
@@ -290,14 +290,6 @@ function! s:ShowWarningMessage(message)
   echo a:message
   echohl None
 endfunction
-
-"-------------------------------------------------------------------------------
-" ag.vim
-"-------------------------------------------------------------------------------
-
-"let g:ag_mapping_message = 0
-"let g:ag_prg = 'ag --vimgrep --literal --ignore-dir spec/vcr_cassettes'
-"map <Leader>s :LAg!<Space>
 
 "-------------------------------------------------------------------------------
 " options
