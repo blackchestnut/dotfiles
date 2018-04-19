@@ -3,11 +3,11 @@ require 'fileutils'
 require 'open-uri'
 
 # wincent/Command-T
+# scrooloose/syntastic
 git_bundles = %w[
   ap/vim-css-color
   bkad/CamelCaseMotion
   blackchestnut/ack.vim
-  brookhong/ag.vim
   cakebaker/scss-syntax.vim
   elzr/vim-json
   fatih/vim-go
@@ -20,7 +20,6 @@ git_bundles = %w[
   saks/Specky
   scrooloose/nerdcommenter
   scrooloose/nerdtree
-  scrooloose/syntastic
   slim-template/vim-slim
   tpope/vim-endwise
   tpope/vim-haml
@@ -29,6 +28,7 @@ git_bundles = %w[
   vim-airline/vim-airline
   vim-airline/vim-airline-themes
   vim-ruby/vim-ruby
+  w0rp/ale
   yssl/QFEnter
 ]
 
