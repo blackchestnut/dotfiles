@@ -37,37 +37,6 @@ map <silent> <leader>N :NERDTreeFind<cr>
 map ,<space> <plug>NERDCommenterToggle
 
 "-------------------------------------------------------------------------------
-" Syntastic
-"-------------------------------------------------------------------------------
-"nmap <silent> <Leader>cc :SyntasticCheck<CR>
-"nmap <silent> <Leader>cr :SyntasticReset<CR>
-
-"let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
-"let g:syntastic_javascript_checkers=['eslint']
-"let g:syntastic_mode_map = {
-"      \   'mode': 'passive',
-"      \   'active_filetypes': [],
-"      \   'passive_filetypes': []
-"      \ }
-"let g:syntastic_ruby_mri_exec = '~/.rvm/rubies/ruby-2.3.0/bin/ruby'
-
-"" http://vim.wikia.com/wiki/Simplifying_regular_expressions_using_magic_and_no-magic
-""
-"" '\m^shadowing outer local variable'
-"let g:syntastic_ruby_mri_quiet_messages = {
-"\   'regex': [
-"\     '\m`&'' interpreted as argument prefix',
-"\     '\m`*'' interpreted as argument prefix',
-"\     '\mambiguous first argument; put parentheses or a space even after `/'' operator'
-"\   ]
-"\ }
-"let g:syntastic_coffee_checkers=['coffee']
-"let g:syntastic_slim_checkers=['slimrb']
-"let g:syntastic_json_checkers=['jsonlint'] " npm install -g jsonlint
-"let g:vim_json_syntax_conceal = 0
-"let g:syntastic_sass_checkers=[]
-
-"-------------------------------------------------------------------------------
 " javascript-libraries-syntax.vim
 "-------------------------------------------------------------------------------
 let g:used_javascript_libs = 'react,underscore,jquery,d3'
@@ -300,10 +269,10 @@ let g:ale_sign_column_always = 1
 hi SignColumn guibg=#F3E4EA
 
 " only linters from g:ale_linters are enabled
-""let g:ale_linters_explicit = 1
+let g:ale_linters_explicit = 1
 
-" hi ALEWarningSign guibg=#FDE1FD guifg=#0512FB gui=bold
-" hi ALEErrorSign guibg=#F4DBDC guifg=#662529 gui=bold
+hi ALEWarningSign guibg=#FDE1FD guifg=#0512FB gui=bold
+hi ALEErrorSign guibg=#F4DBDC guifg=#662529 gui=bold
 
 " location list is populated by default -
 " this might overwrite the contents of already
@@ -311,8 +280,8 @@ hi SignColumn guibg=#F3E4EA
 ""let g:ale_set_loclist = 0
 ""let g:ale_set_quickfix = 0
 
-""let g:ale_sign_warning = 'W>'
-""let g:ale_sign_error = 'E>'
+"let g:ale_sign_warning = 'W>'
+"let g:ale_sign_error = 'E>'
 
 " https://github.com/w0rp/ale/issues/505
 " to disable g:ale_lint_on_enter, it's necessary
@@ -321,10 +290,10 @@ let g:ale_lint_on_filetype_changed = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
 
-"let g:ale_linters = {
-"\   'javascript': ['eslint'],
-"\   'ruby': ['rubocop']
-"\ }
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'ruby': ['rubocop']
+\ }
 
 au BufNewFile,BufRead *.rb nnoremap <silent> ,R :w<cr>:silent !rubocop --auto-correct %<cr>:edit!<cr>
 "au BufNewFile,BufRead *.js nnoremap <silent> ,R :w<cr>:silent !yarn run eslint --fix %<cr>:edit!<cr>
@@ -425,7 +394,6 @@ set cpoptions+=$
 set colorcolumn=84
 set guioptions-=T
 set ch=1
-set noguipty
 set nostartofline
 set whichwrap+=>
 set whichwrap+=<

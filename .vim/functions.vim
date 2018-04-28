@@ -1,12 +1,6 @@
 "-----------------------------------------------------------------------------
 " functions
 "-----------------------------------------------------------------------------
-function! GrepIt()
-  let l:word = expand("<cword>")
-  echo 'Searching for "'.l:word.'"...'
-  exec('Grep '.l:word.' **/*')
-endfunction
-
 function! VisualSearch(cmd)
   let l:old_reg=getreg('"')
   let l:old_regtype=getregtype('"')
@@ -263,31 +257,33 @@ function! EnableDebugger()
   vnoremap <s-f11> <esc>:call g:RubyDebugger.finish()<cr>
 endfunction
 
+" NOTE: this functions don't work
+" nnoremap <silent><leader>'  :<C-U>call <SID>ToggleQuote()<CR>
+" nnoremap <silent><leader>"  :<C-U>call <SID>ToggleDoubleQuote()<CR>
 " replacement for quotes
-function! s:ToggleQuote()
-    let q = searchpos("'", 'n', line('.'))
-    let qb = searchpos("'", 'bn', line('.'))
-    let dq = searchpos('"', 'n', line('.'))
-    let dqb = searchpos('"', 'bn', line('.'))
+"function! s:ToggleQuote()
+"    let q = searchpos("'", 'n', line('.'))
+"    let qb = searchpos("'", 'bn', line('.'))
+"    let dq = searchpos('"', 'n', line('.'))
+"    let dqb = searchpos('"', 'bn', line('.'))
 
-    if q[0] > 0 && qb[0] > 0 && (dq[0] == 0 || dq[0] > q[0])
-        execute "normal mzcs'\"`z"
-    elseif dq[0] > 0 && dqb[0] > 0
-        execute "normal mzcs\"'`z"
-    endif
-endfunction
+"    if q[0] > 0 && qb[0] > 0 && (dq[0] == 0 || dq[0] > q[0])
+"        execute "normal mzcs'\"`z"
+"    elseif dq[0] > 0 && dqb[0] > 0
+"        execute "normal mzcs\"'`z"
+"    endif
+"endfunction
 
 " replacement for double quotes
-function! s:ToggleDoubleQuote()
-    let q = searchpos('"', 'n', line('.'))
-    let qb = searchpos('"', 'bn', line('.'))
-    let dq = searchpos("'", 'n', line('.'))
-    let dqb = searchpos("'", 'bn', line('.'))
+"function! s:ToggleDoubleQuote()
+"    let q = searchpos('"', 'n', line('.'))
+"    let qb = searchpos('"', 'bn', line('.'))
+"    let dq = searchpos("'", 'n', line('.'))
+"    let dqb = searchpos("'", 'bn', line('.'))
 
-    if q[0] > 0 && qb[0] > 0 && (dq[0] == 0 || dq[0] > q[0])
-        execute "normal mzcs\"'`z"
-    elseif dq[0] > 0 && dqb[0] > 0
-        execute "normal mzcs'\"`z"
-    endif
-endfunction
-
+"    if q[0] > 0 && qb[0] > 0 && (dq[0] == 0 || dq[0] > q[0])
+"        execute "normal mzcs\"'`z"
+"    elseif dq[0] > 0 && dqb[0] > 0
+"        execute "normal mzcs'\"`z"
+"    endif
+"endfunction

@@ -65,15 +65,14 @@ vnoremap <s-del> "+x
 vnoremap <c-c> "+y
 vnoremap <c-insert> "+y
 
-map <c-v> "+gP
-map <s-insert> "+gP
+"map <c-v> "+gP
+"map <s-insert> "+gP
 
 "-----------------------------------------------------------------------------
 " hotkeys / shortcuts
 "-----------------------------------------------------------------------------
 vmap < <gv
 vmap > >gv
-
 
 " Pasting blockwise and linewise selections is not possible in Insert and
 " Visual mode without the +virtualedit feature.  They are pasted as if they
@@ -151,11 +150,6 @@ imap {<cr> {<cr>}<Esc>O
 imap <% <%  %><left><left><left>
 imap <%= <%= %><left><left><left>
 
-map <Leader>f :call GrepIt()<cr>
-" quotes replacement
-nnoremap <silent><leader>'  :<C-U>call <SID>ToggleQuote()<CR>
-nnoremap <silent><leader>"  :<C-U>call <SID>ToggleDoubleQuote()<CR>
-
 map <c-\> :tab split<cr>:exec("tag ".expand("<cword>"))<cr>
 
 "-------------------------------------------------------------------------------
@@ -165,3 +159,10 @@ map <c-\> :tab split<cr>:exec("tag ".expand("<cword>"))<cr>
 inoremap {{ {}<Esc>i
 inoremap {{{ {{}}<Esc>hi
 inoremap (( ()<Esc>i
+
+"-------------------------------------------------------------------------------
+" Replacements
+"-------------------------------------------------------------------------------
+
+nmap <Leader>' cs"'
+nmap <Leader>" cs'"
