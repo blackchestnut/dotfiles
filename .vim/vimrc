@@ -265,7 +265,7 @@ endfunction
 "-------------------------------------------------------------------------------
 
 let g:ale_enabled = 1
-let g:ale_sign_column_always = 1
+"let g:ale_sign_column_always = 1
 hi SignColumn guibg=#F3E4EA
 
 " only linters from g:ale_linters are enabled
