@@ -161,8 +161,11 @@ inoremap {{{ {{}}<Esc>hi
 inoremap (( ()<Esc>i
 
 "-------------------------------------------------------------------------------
-" Replacements
+" Quotes
 "-------------------------------------------------------------------------------
 
 nmap <Leader>' cs"'
 nmap <Leader>" cs'"
+nmap <Leader>'' ciw'"<Esc>P
+nmap <Leader>'' ciw''<Esc>P
+nmap <Leader>'d daW"=substitute(@@,"'\\\|\"","","g")<CR>P
