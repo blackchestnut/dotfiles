@@ -96,7 +96,7 @@ alias gd2='git diff HEAD~2 --color'
 alias gd3='git diff HEAD~3 --color'
 alias gd='git diff HEAD --color'
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s - %C(bold blue)%an%Creset, %Cgreen%cr' --abbrev-commit"
-alias gm='git mergetool'
+alias gm='git mergetool --tool=vimdiff'
 alias gp='git push'
 alias grh='git reset --hard && git clean -f'
 alias gs='git status'
