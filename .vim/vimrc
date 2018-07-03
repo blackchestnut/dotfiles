@@ -391,7 +391,7 @@ set linespace=0
 
 set number " always show line numbers
 set cpoptions+=$
-set colorcolumn=84
+set colorcolumn=81
 set guioptions-=T
 set ch=1
 set nostartofline
