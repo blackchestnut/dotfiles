@@ -34,8 +34,9 @@ export ANDROID_SDK_ROOT=ANDROID_HOME                 #
 export PATH=${PATH}:${ANDROID_HOME}/tools            # - android
 export PATH=${PATH}:${ANDROID_HOME}/tools/bin        # - sdkmanager and avdmanager
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools   # - adb (Android Debug Bridge)
-export BUNDLER_EDITOR='mvim' # For $ bundle open gem_name
-export REACT_EDITOR='mvim'
+export BUNDLER_EDITOR=mvim # For $ bundle open gem_name
+export REACT_EDITOR=mvim
+export EDITOR=mvim
 source ~/.environments
 
 #-----------------------------------------------------------------------------------------
