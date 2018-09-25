@@ -35,6 +35,7 @@
 .viminf*
 .viminfo
 .vimrc
+.wget-hsts
 .world_art_parser.yml
 .yarnrc
 .zcompdump*
@@ -75,6 +76,7 @@ default.txaPackage
 .local/
 .m2/
 .mix/
+.ngrok/
 .node-gyp/
 .oh-my-zsh/
 .oracle_jre_usage/
