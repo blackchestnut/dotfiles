@@ -216,3 +216,65 @@ alias avd='emulator -avd Nexus_5X_API_23_x86_64 -gpu host -skin 1080x1920'
 
 # Rbenv
 # eval "$(rbenv init -)"
+
+#-------------------------------------------------------------------------------
+# tab colors
+#-------------------------------------------------------------------------------
+#if [[ -n "$ITERM_SESSION_ID" ]]; then
+#  tab-color() {
+#    echo -ne "\033]6;1;bg;red;brightness;$1\a"
+#    echo -ne "\033]6;1;bg;green;brightness;$2\a"
+#    echo -ne "\033]6;1;bg;blue;brightness;$3\a"
+#  }
+#  tab-red() { tab-color 255 0 0 }
+#  tab-green() { tab-color 0 255 0 }
+#  tab-blue() { tab-color 0 0 255 }
+#  tab-reset() { echo -ne "\033]6;1;bg;*;default\a" }
+
+#  function iterm2_tab_precmd() {
+#    tab-reset
+#  }
+
+#  function iterm2_tab_preexec() {
+#    if [[ "$1" =~ "^(guard$|yarn test)" ]]; then
+#      tab-color 255 177 0
+#    elif [[ "$1" =~ "^(rc|rails console|hc|hanami console)$" ]]; then
+#      tab-color 90 255 55
+#    elif [[ "$1" =~ "^(ys|yarn start)$" ]]; then
+#      tab-color 0 255 192
+#    elif [[ "$1" =~ "^(sidekiq|forman|docker-compose|hs$)" ]]; then
+#      # tab-color 128 51 170
+#      tab-color 150 100 255
+#    elif [[ "$1" =~ "^(webpack|ww)$" ]]; then
+#      tab-color 121 174 238
+#    elif [[ "$1" =~ "^(rails|yarn)" ]]; then
+#      tab-color 255 128 128
+#    elif [[ "$1" =~ "^(deploy|cap (production|staging )?deploy)" ]]; then
+#      tab-color 255 0 0
+#    fi
+#  }
+
+#  autoload -U add-zsh-hook
+#  add-zsh-hook precmd  iterm2_tab_precmd
+#  add-zsh-hook preexec iterm2_tab_preexec
+#fi
+
+#-------------------------------------------------------------------------------
+# background colors
+#-------------------------------------------------------------------------------
+#if [[ -n "$ITERM_SESSION_ID" ]]; then
+#  function tabc() {
+#    NAME=$1; if [ -z "$NAME" ]; then NAME="Default"; fi # if you have trouble with this, change
+#                                                        # "Default" to the name of your default theme
+#    echo -e "\033]50;SetProfile=$NAME\a"
+#  }
+#  function colorssh() {
+#    # trap "tab-reset" INT EXIT
+#    tabc SSH
+#    tab-color 255 0 0
+#    ssh $*
+#    tab-reset
+#    tabc
+#  }
+#  alias ssh="colorssh"
+#fi
