@@ -18,6 +18,7 @@ brew 'elasticsearch', restart_service: :changed
 brew 'mc'
 # brew 'git'
 brew 'htop'
+brew 'jq'
 brew 'imagemagick'
 brew 'macvim'
 brew 'memcached', restart_service: :changed
