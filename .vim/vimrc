@@ -356,12 +356,12 @@ syntax on
 set t_Co=256
 
 "1. ir_black
-"colors ir_black_blackchestnut
+colors ir_black_blackchestnut
 
 "2. PaperColor
-set background=light
+"set background=light
 "set background=dark
-colorscheme PaperColor
+"colorscheme PaperColor
 
 "-------------------------------------------------------------------------------
 " Fonts
@@ -374,20 +374,23 @@ colorscheme PaperColor
 " qwertyuiopasdfghjklzxcvbnm
 " QWERTYUIOPASDFGHJKLZXCVBNM
 
-set guifont=Monaco\ for\ Powerline:h14
+"set guifont=Monaco:h13
+"set linespace=0
+
+set guifont=Monaco\ for\ Powerline:h13
 set linespace=0
 
-"set linespace=-2
-"set guifont=Inconsolata\ LGC:h14
+"set guifont=Inconsolata\ LGC:h13
+"set linespace=-3
 
-"set linespace=3
-"set guifont=Inconsolata:h14
+"set linespace=0
+"set guifont=Inconsolata:h15
 
-"set linespace=2
-"set guifont=Input\ Mono\ Narrow:h13
-
+"set guifont=Input\ Mono\ Narrow:h14
 "set linespace=1
+
 "set guifont=Andale\ Mono\ MT\ Std:h13
+"set linespace=1
 
 set number " always show line numbers
 set cpoptions+=$
