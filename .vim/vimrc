@@ -62,7 +62,7 @@ let g:airline_theme='papercolor'
 "-------------------------------------------------------------------------------
 let g:CommandTMatchWindowReverse = 0
 let g:CommandTMaxHeight = 17
-let g:CommandTMaxFiles = 25000
+let g:CommandTMaxFiles = 100000
 let g:CommandTWildIgnore = &wildignore."*.o,*.obj,.git,.svn,*.png,*.jpg,.DS_Store,*.log,public/uploads/**,public/images/**,public/system/images/**,public/assets/**,tmp/**,client/node_modules,node_modules/**,android/app/build/**,ios/build/**,spec/vcr_cassettes/**"
 
 nmap <silent> <leader>t :CommandT<cr>
