@@ -5,6 +5,7 @@
 .CFUserTextEncoding
 .DS_Store
 .NERDTreeBookmarks
+.anyconnect
 .babel.json
 .bash_history
 .bash_login
