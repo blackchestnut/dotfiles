@@ -47,6 +47,7 @@ source ~/.environments
 
 RALSPROJECTS="~/projects"
 alias my="cd $RALSPROJECTS/mybudget"
+alias mygo="cd $GOPATH/src/github.com/blackchestnut"
 alias vi="cd $RALSPROJECTS/vimocean"
 alias ag="cd $RALSPROJECTS/agileseason"
 alias a="cd $RALSPROJECTS/agileseason2"
@@ -63,7 +64,9 @@ alias as="cd $RALSPROJECTS/grin/amazing-supplies"
 alias aw="cd $RALSPROJECTS/grin/grin"
 alias ass="cd $RALSPROJECTS/grin/asscraper"
 alias asa="cd $RALSPROJECTS/grin/asapp"
-alias mygo="cd $GOPATH/src/github.com/blackchestnut"
+alias asa="cd $RALSPROJECTS/grin/asapp"
+alias ca="cd $RALSPROJECTS/grin/cardwiz"
+alias cad="cd $RALSPROJECTS/grin/cardwiz-data"
 cd_projects() {
   cd ~/projects/$1
 }
