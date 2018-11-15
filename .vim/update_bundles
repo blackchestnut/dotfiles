@@ -17,6 +17,7 @@ git_bundles = %w[
   ngmy/vim-rubocop
   othree/javascript-libraries-syntax.vim
   plasticboy/vim-markdown
+  posva/vim-vue
   saks/Specky
   scrooloose/nerdcommenter
   scrooloose/nerdtree
