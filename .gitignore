@@ -89,6 +89,7 @@ default.txaPackage
 .rvm/
 .subversion/
 .vim_backups/
+.vue-templates/
 Applications/
 Backup/
 Desktop/
