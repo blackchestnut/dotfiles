@@ -64,9 +64,10 @@ alias as="cd $RALSPROJECTS/grin/amazing-supplies"
 alias aw="cd $RALSPROJECTS/grin/grin"
 alias ass="cd $RALSPROJECTS/grin/asscraper"
 alias asa="cd $RALSPROJECTS/grin/asapp"
-alias asa="cd $RALSPROJECTS/grin/asapp"
 alias ca="cd $RALSPROJECTS/grin/cardwiz"
 alias cad="cd $RALSPROJECTS/grin/cardwiz-data"
+alias mi="cd $RALSPROJECTS/minisklad.su/minisklad"
+alias miw="cd $RALSPROJECTS/minisklad.su/minisklad-web"
 cd_projects() {
   cd ~/projects/$1
 }
