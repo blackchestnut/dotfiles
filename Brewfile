@@ -9,14 +9,17 @@ tap 'caskroom/versions'
 tap 'homebrew/bundle'
 tap 'homebrew/services'
 
-# after installation:
+# NOTE: after installation:
 # brew 'node'
 # brew 'rbenv'
 # brew 'watchman'
 
+# ???
+# brew 'the_silver_searcher'
+# brew 'git'
+#
 brew 'elasticsearch', restart_service: :changed
 brew 'mc'
-# brew 'git'
 brew 'htop'
 brew 'jq'
 brew 'imagemagick'
@@ -25,6 +28,6 @@ brew 'memcached', restart_service: :changed
 brew 'rbenv-ctags'
 brew 'redis', restart_service: :changed
 brew 'ripgrep'
-# brew 'the_silver_searcher'
 brew 'wget'
 brew 'zsh'
+brew 'yarn'
