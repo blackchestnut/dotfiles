@@ -112,8 +112,10 @@ alias gs='git status'
 alias gu='git fetch && git pull --rebase' # https://github.com/aanand/git-up
 alias develop='git checkout develop && gu'
 alias master='git checkout master && gu'
+alias amsterdam='git checkout amsterdam && gu'
 alias pull=gu
 alias push=gp
+alias ccom='git commit --amend -m'
 
 #-----------------------------------------------------------------------------------------
 # Rails
