@@ -21,6 +21,7 @@
 .lesshst
 .mysql_history
 .netrc
+.node_repl_history
 .npm
 .profile
 .pry_history
@@ -67,6 +68,7 @@ default.txaPackage
 .config/
 .cordova/
 .dropbox/
+.expo/
 .gem/
 .gnupg/
 .gradle/
@@ -90,6 +92,7 @@ default.txaPackage
 .subversion/
 .vim_backups/
 .vue-templates/
+.webdrivers/
 Applications/
 Backup/
 Desktop/

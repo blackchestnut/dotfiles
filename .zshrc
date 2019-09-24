@@ -67,7 +67,9 @@ alias asa="cd $RALSPROJECTS/grin/asapp"
 alias ca="cd $RALSPROJECTS/grin/cardwiz"
 alias cad="cd $RALSPROJECTS/grin/cardwiz-data"
 alias mi="cd $RALSPROJECTS/minisklad.su/minisklad"
-alias miw="cd $RALSPROJECTS/minisklad.su/minisklad-web"
+alias mic="cd $RALSPROJECTS/minisklad.su/minisklad-chef"
+alias mia="cd $RALSPROJECTS/minisklad.su/minisklad-app"
+alias miaa="cd $RALSPROJECTS/minisklad.su/minisklad-app-admin"
 cd_projects() {
   cd ~/projects/$1
 }

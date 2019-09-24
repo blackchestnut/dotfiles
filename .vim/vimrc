@@ -374,19 +374,16 @@ colors ir_black_blackchestnut
 " qwertyuiopasdfghjklzxcvbnm
 " QWERTYUIOPASDFGHJKLZXCVBNM
 
-"set guifont=Monaco:h13
+"set guifont=Monaco:h14
 "set linespace=0
 
 set guifont=Monaco\ for\ Powerline:h13
 set linespace=0
 
-"set guifont=Inconsolata\ LGC:h13
-"set linespace=-3
+"set guifont=Inconsolata\ LGC:h12
+"set linespace=-2
 
-"set linespace=0
-"set guifont=Inconsolata:h15
-
-"set guifont=Input\ Mono\ Narrow:h14
+"set guifont=Inconsolata:h14
 "set linespace=1
 
 "set guifont=Andale\ Mono\ MT\ Std:h13
