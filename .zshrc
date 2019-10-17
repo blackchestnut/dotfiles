@@ -102,8 +102,8 @@ alias g='git'
 alias ga="git add $1"
 alias gaa='git add -A'
 alias gb="git checkout -b $1"
-alias gc="git commit -m -S $1"
-alias gcc="git commit --amend -m -S $1"
+alias gc="git commit -m $1"
+alias gcc="git commit --amend -m $1"
 alias gch="git checkout $1"
 alias gd1='git diff HEAD~1 --color'
 alias gd2='git diff HEAD~2 --color'
@@ -121,6 +121,7 @@ alias amsterdam='git checkout amsterdam && gu'
 alias pull=gu
 alias push=gp
 alias ccom='git commit --amend -m'
+alias misc='git add -A && git commit -m "misc"'
 
 #-----------------------------------------------------------------------------------------
 # Rails

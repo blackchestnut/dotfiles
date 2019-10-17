@@ -1,7 +1,9 @@
 [user]
-	name = blackchestnut
-	email = alexander.kalinichev@gmail.com
-	signingkey = 53EE7E39FCB02DD0
+  name = blackchestnut
+  email = alexander.kalinichev@gmail.com
+  signingkey = 53EE7E39FCB02DD0
+[commit]
+  gpgsign = true
 [merge]
   summary = true
   verbosity = 1
@@ -13,18 +15,18 @@
   cmd = "mvim -f --nomru -c 'Gdiff' $MERGED" # use fugitive.vim for 3-way merge
   keepBackup = false
 [filter "media"]
-	required = true
-	clean = git media clean %f
-	smudge = git media smudge %f
+  required = true
+  clean = git media clean %f
+  smudge = git media smudge %f
 [color]
-	ui = true
+  ui = true
 [filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
-	required = true
+  clean = git hawser clean %f
+  smudge = git hawser smudge %f
+  required = true
 [filter "lfs"]
-	clean = git lfs clean %f
-	smudge = git lfs smudge %f
-	required = true
+  clean = git lfs clean %f
+  smudge = git lfs smudge %f
+  required = true
 [push]
-	default = current
+  default = current
