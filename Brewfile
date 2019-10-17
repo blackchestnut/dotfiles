@@ -27,6 +27,7 @@ brew 'redis', restart_service: :changed
 
 brew 'rbenv'
 brew 'rbenv-ctags'
+brew 'rbenv-gemset'
 brew 'watchman'
 brew 'node'
 
