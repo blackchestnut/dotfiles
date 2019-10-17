@@ -3,31 +3,33 @@
 
 cask_args appdir: '/apps'
 
-tap 'caskroom/cask'
-tap 'caskroom/fonts'
-tap 'caskroom/versions'
+# tap 'caskroom/fonts'
+# tap 'homebrew/cask-cask'
+tap 'homebrew/cask-versions'
 tap 'homebrew/bundle'
 tap 'homebrew/services'
 
-# NOTE: after installation:
-# brew 'node'
-# brew 'rbenv'
-# brew 'watchman'
-
-# ???
-# brew 'the_silver_searcher'
-# brew 'git'
-#
-brew 'elasticsearch', restart_service: :changed
+brew 'git'
 brew 'mc'
 brew 'htop'
 brew 'jq'
 brew 'imagemagick'
-brew 'macvim'
-brew 'memcached', restart_service: :changed
-brew 'rbenv-ctags'
-brew 'redis', restart_service: :changed
+# brew 'macvim' brew install macvim --HEAD
 brew 'ripgrep'
 brew 'wget'
 brew 'zsh'
+brew 'zsh-completions'
 brew 'yarn'
+cask 'adoptopenjdk8' # required for elasticsearch
+brew 'elasticsearch', restart_service: :changed
+brew 'memcached', restart_service: :changed
+brew 'redis', restart_service: :changed
+
+brew 'rbenv'
+brew 'rbenv-ctags'
+brew 'watchman'
+brew 'node'
+
+# for minisklad
+brew 'FreeTDS'
+brew 'ansible'

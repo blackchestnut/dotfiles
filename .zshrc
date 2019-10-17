@@ -7,7 +7,7 @@ HISTSIZE=100000
 HISTFILESIZE=200000
 TERM="xterm-256color"
 ZSH=$HOME/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -28,9 +28,9 @@ export PATH=$PATH:$GOPATH/bin # Add Go bins to PATH for installed golang-program
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/share/npm/bin
 # export PATH=/usr/local/bin:$PATH
 # export PATH=/usr/local/sbin:$PATH
-export PATH=/usr/local/opt/postgresql@9.5/bin:$PATH
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH="$HOME/.rbenv/bin:$PATH" # Add rbenv path.
+#
+# TODO:
+# export PATH=/usr/local/opt/postgresql@9.5/bin:$PATH
 export ANDROID_HOME=/usr/local/share/android-sdk     # React Native for Android
 export ANDROID_SDK_ROOT=ANDROID_HOME                 #
 export PATH=${PATH}:${ANDROID_HOME}/tools            # - android
@@ -39,7 +39,9 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools   # - adb (Android Debug Brid
 export BUNDLER_EDITOR=mvim # For $ bundle open gem_name
 export REACT_EDITOR=mvim
 export EDITOR=mvim
-source ~/.environments
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+# TODO:
+# source ~/.environments
 
 #-----------------------------------------------------------------------------------------
 # Aliases, cd ~/my_projects
@@ -219,15 +221,8 @@ alias gh=hg
 # React Native
 #-----------------------------------------------------------------------------------------
 
-alias emulator='cd /usr/local/share/android-sdk/emulator && ./emulator'
-alias avd='emulator -avd Nexus_5X_API_23_x86_64 -gpu host -skin 1080x1920'
-
-#-----------------------------------------------------------------------------------------
-# Init
-#-----------------------------------------------------------------------------------------
-
-# Rbenv
-# eval "$(rbenv init -)"
+# alias emulator='cd /usr/local/share/android-sdk/emulator && ./emulator'
+# alias avd='emulator -avd Nexus_5X_API_23_x86_64 -gpu host -skin 1080x1920'
 
 #-------------------------------------------------------------------------------
 # tab colors
@@ -290,3 +285,11 @@ alias avd='emulator -avd Nexus_5X_API_23_x86_64 -gpu host -skin 1080x1920'
 #  }
 #  alias ssh="colorssh"
 #fi
+
+
+#-------------------------------------------------------------------------------
+# Rbenv
+#-------------------------------------------------------------------------------
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
