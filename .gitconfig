@@ -1,6 +1,7 @@
 [user]
 	name = blackchestnut
 	email = alexander.kalinichev@gmail.com
+	signingkey = 53EE7E39FCB02DD0
 [merge]
   summary = true
   verbosity = 1
