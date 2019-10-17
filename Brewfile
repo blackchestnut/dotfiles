@@ -1,7 +1,7 @@
 # https://github.com/Homebrew/homebrew-bundle
 # $> brew bundle
 
-cask_args appdir: '/apps'
+cask_args appdir: '/Applications'
 
 # tap 'caskroom/fonts'
 # tap 'homebrew/cask-cask'
@@ -34,3 +34,5 @@ brew 'node'
 # for minisklad
 brew 'FreeTDS'
 brew 'ansible'
+
+mas 'Monosnap', id: 540348655
