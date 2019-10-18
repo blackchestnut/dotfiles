@@ -9,18 +9,18 @@ source ~/.vim/colorscheme.vim
 " editing
 "-----------------------------------------------------------------------------
 set cpoptions+=$
-set colorcolumn=81
-" do not highlight after 200 column
-set synmaxcol=200
+set colorcolumn=81 " 101 ??
+set synmaxcol=200 " do not highlight after 200 column
 
-" http://vim.wikia.com/wiki/Project_specific_settings
-function! SetupEnvironment()
-  let l:path = expand('%:p')
-  if l:path =~ '/Users/morr/develop/shikimori/'
-    setlocal colorcolumn=101
-  endif
-endfunction
-autocmd! BufReadPost,BufNewFile * call SetupEnvironment()
+"-------------------------------------------------------------------------------
+" fold (Collapse the method body) TODO: Fix
+"-------------------------------------------------------------------------------
+"nmap <Backspace> za
+"set foldenable
+"set foldlevelstart=10
+"" syntax folding might not work in some cases (e.g. in spec files)
+"set foldmethod=indent
+"set foldnestmax=10
 
 "-----------------------------------------------------------------------------
 " other options

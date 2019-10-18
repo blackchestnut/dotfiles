@@ -1,6 +1,18 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'airblade/vim-gitgutter'
+" morr
+"Plug 'airblade/vim-gitgutter'
+"Plug 'morr/vim-ruby'
+
+" my
+" majutsushi/tagbar
+" ngmy/vim-rubocop
+" othree/javascript-libraries-syntax.vim
+" plasticboy/vim-markdown
+" saks/Specky
+" vim-airline/vim-airline
+" vim-airline/vim-airline-themes
+
 Plug 'ap/vim-css-color'
 Plug 'bkad/CamelCaseMotion'
 Plug 'briancollins/vim-jst'
@@ -8,13 +20,15 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'elixir-lang/vim-elixir'
 Plug 'elzr/vim-json'
+Plug 'fatih/vim-go'
 Plug 'flazz/vim-colorschemes'
 Plug 'henrik/vim-indexed-search'
 Plug 'int3/vim-extradite'
+Plug 'jparise/vim-graphql'
 Plug 'kchmck/vim-coffee-script'
 Plug 'keithbsmiley/rspec.vim'
-Plug 'vim-scripts/matchit.zip'
 Plug 'mhinz/vim-hugefile'
+Plug 'vim-ruby/vim-ruby'
 Plug 'slim-template/vim-slim'
 Plug 'sstephenson/eco'
 Plug 'tpope/vim-endwise'
@@ -22,9 +36,8 @@ Plug 'tpope/vim-haml'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'morr/vim-ruby'
 Plug 'vim-scripts/grep.vim'
-Plug 'jparise/vim-graphql'
+Plug 'vim-scripts/matchit.zip'
 
 "-----------------------------------------------------------------------------
 " javascript
@@ -159,38 +172,6 @@ nmap <f3> :NERDTreeToggle<cr>
 let g:NERDTreeIgnore = ['node_modules']
 
 "-----------------------------------------------------------------------------
-" Plug 'scrooloose/nerdcommenter'
-"-----------------------------------------------------------------------------
-" let g:NERDSpaceDelims = 1
-" let g:NERDCompactSexyComs = 1
-" let g:NERDDefaultAlign = 'left'
-" let g:NERDCustomDelimiters = {
-"   \ 'eruby': { 'left': '#', 'right': '' },
-" \ }
-
-" map ,<space> <plug>NERDCommenterToggle
-
-" let g:ft = ''
-" function! NERDCommenter_before()
-"   if &ft == 'vue'
-"     let g:ft = 'vue'
-"     let stack = synstack(line('.'), col('.'))
-"     if len(stack) > 0
-"       let syn = synIDattr((stack)[0], 'name')
-"       if len(syn) > 0
-"         exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
-"       endif
-"     endif
-"   endif
-" endfunction
-" function! NERDCommenter_after()
-"   if g:ft == 'vue'
-"     setf vue
-"     let g:ft = ''
-"   endif
-" endfunction
-
-"-----------------------------------------------------------------------------
 " replacement for nerdcommenter that works for vue
 Plug 'tyru/caw.vim'
 Plug 'Shougo/context_filetype.vim'
@@ -239,9 +220,11 @@ au BufNewFile,BufRead *.vue nnoremap <silent> ,R :w<cr>:silent !yarn run eslint 
 "-------------------------------------------------------------------------------
 Plug 'tpope/vim-rails'
 "-------------------------------------------------------------------------------
-nmap <F4> :A<CR>
-nmap <Leader><F4> :AV<CR>
+nmap <Leader>, :A<cr>
+nmap <Leader>v :AV<cr>
 nmap gs :AV<cr>
+" My variant:
+"nmap gs :AV<cr><c-w><s-l>
 
 " example projections: https://gist.github.com/henrik/5676109
 let g:rails_projections = {
@@ -261,12 +244,37 @@ let g:rails_projections = {
 \     'alternate': 'config/locales/{}ru.yml'
 \   }
 \ }
+" My variant:
+"let g:rails_projections = {
+"\   'app/admin/*.rb': {
+"\     'alternate': 'spec/controllers/admin/{}_controller_spec.rb'
+"\   },
+"\   'spec/controllers/admin/*_controller_spec.rb': {
+"\     'alternate': 'app/admin/{}.rb'
+"\   },
+"\   'lib/*.rb': {
+"\     'alternate': 'spec/{}_spec.rb'
+"\   },
+"\   'spec/*_spec.rb': {
+"\     'alternate': 'lib/{}.rb'
+"\   },
+"\   'config/locales/*.ru.yml': {
+"\     'alternate': 'config/locales/{}.en.yml'
+"\   },
+"\   'config/locales/*.en.yml': {
+"\     'alternate': 'config/locales/{}.ru.yml'
+"\   }
+"\ }
 
 "-------------------------------------------------------------------------------
-Plug 'tap349/ack.vim'
+" ack.vim
+" https://github.com/mileszs/ack.vim/blob/master/doc/ack.txt
+" TODO: Try tap349/ack.vim with functions: Search, SearchWithGlob
+Plug 'blackchestnut/ack.vim'
 "-------------------------------------------------------------------------------
 
-let g:ackprg = 'rg --fixed-strings --smart-case --vimgrep'
+let g:ackhighlight = 1
+let g:ackprg = 'rg -FS --sort-files --vimgrep'
 " disable empty search (searching the word under cursor) -
 " it complicates the logic to parse user input excessively
 "
@@ -274,25 +282,22 @@ let g:ackprg = 'rg --fixed-strings --smart-case --vimgrep'
 let g:ack_use_cword_for_empty_search = 0
 
 " QFEnter works with both quickfix windows and location lists
-map <Leader>/ :call <SID>Search()<CR>
-map <Leader>\ :call <SID>SearchWithGlob()<CR>
+" NOTE: Search doen't work, add dir after search, example: ./
+"map <Leader>s :call <SID>Search()<CR>
+map <Leader>s :Ack!<Space>
 
-function! s:Search()
+" NOTE: Try to fix ack.vim
+"let g:ackprg = 'rg --fixed-strings --smart-case --vimgrep'
+"let g:ctrlp_user_command = 'rg --files %s'
+" NOTE END
+
+" useful symbols: ⎸│⮁⮀
+function! s:Search( )
   echohl AckSearch
-  let l:input_phrase = input('⎸SEARCH > ')
+  let l:input_phrase = input(' SEARCH ⮁ ')
   echohl None
 
-  call <SID>MyLAck(l:input_phrase, '')
-endfunction
-
-function! s:SearchWithGlob()
-  echohl AckSearch
-  let l:input_phrase = input('⎸SEARCH [1/2] > ')
-  redraw!
-  let l:glob = input('⎸GLOB [2/2] > ')
-  echohl None
-
-  call <SID>MyLAck(l:input_phrase, l:glob)
+  call <SID>MyLAck(l:input_phrase)
 endfunction
 
 " `!` is not allowed in function name
@@ -324,6 +329,8 @@ endfunction
 " => escape all special characters excluding `!%#` with
 "    `shellescape`, escape `%#` with `escape` twice
 "    and let `--` deal with strings starting with dashes
+"
+" NOTE: still IDK how to search for literal '--'
 function! s:MyLAck(input_phrase, ...)
   let l:glob = get(a:, 1, '')
   let l:glob_option = len(l:glob) ? '-g ''*' . l:glob . '*''' : ''
@@ -344,7 +351,7 @@ function! s:MyLAck(input_phrase, ...)
   elseif l:args_len == 1
     let l:options = l:glob_option
     let l:search_phrase = join(l:split_args)
-  " options and search phrase
+  " options and search phrase (`-w -- foo`)
   else
     let l:options = l:glob_option . ' ' . l:split_args[0]
     let l:search_phrase = join(l:split_args[1:-1], l:delimiter)
@@ -370,11 +377,12 @@ function! s:ShowWarningMessage(message)
 endfunction
 
 "-----------------------------------------------------------------------------
-Plug 'tpope/vim-repeat'
+"Plug 'tpope/vim-repeat' TODO
 "-----------------------------------------------------------------------------
-silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
+"silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 
 "-------------------------------------------------------------------------------
+" TODO: make a fork
 Plug 'tap349/QFEnter'
 " QFEnter respects `switchbuf` option! if selected file is opened
 " in another tab all mappings below just switch to that tab
@@ -392,26 +400,15 @@ let g:qfenter_keymap.hopen = ['<C-s>']
 let g:qfenter_keymap.vopen = ['<C-v>']
 let g:qfenter_keymap.topen = ['<C-t>']"
 
+"-----------------------------------------------------------------------------
+"Plug 'osyo-manga/vim-anzu' TODO: ???
+"-----------------------------------------------------------------------------
+"nmap * <Plug>(anzu-star)
+"nmap # <Plug>(anzu-sharp)
+"nmap n <Plug>(anzu-mode-n)
+"nmap N <Plug>(anzu-mode-N)
 
 "-----------------------------------------------------------------------------
-Plug 'osyo-manga/vim-anzu'
-"-----------------------------------------------------------------------------
-nmap * <Plug>(anzu-star)
-nmap # <Plug>(anzu-sharp)
-nmap n <Plug>(anzu-mode-n)
-nmap N <Plug>(anzu-mode-N)
-
-"-----------------------------------------------------------------------------
-" Plug 'haya14busa/vim-asterisk'
-"-----------------------------------------------------------------------------
-" map *   <Plug>(asterisk-*)
-" map #   <Plug>(asterisk-#)
-" map g*  <Plug>(asterisk-g*)
-" map g#  <Plug>(asterisk-g#)
-" map z*  <Plug>(asterisk-z*)
-" map gz* <Plug>(asterisk-gz*)
-" map z#  <Plug>(asterisk-z#)
-" map gz# <Plug>(asterisk-gz#)
-
 " Initialize plugin system
+"-----------------------------------------------------------------------------
 call plug#end()
