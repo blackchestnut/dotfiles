@@ -13,7 +13,6 @@
 .config/mc/ini
 .emulator_console_auth_token
 .environments
-.gemrc
 .gtk-bookmarks
 .guard_history
 .heroku
