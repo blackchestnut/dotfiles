@@ -41,8 +41,7 @@ export BUNDLER_EDITOR=mvim # For $ bundle open gem_name
 export REACT_EDITOR=mvim
 export EDITOR=mvim
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-# TODO:
-# source ~/.environments
+source ~/.environments
 
 #-----------------------------------------------------------------------------------------
 # Aliases, cd ~/my_projects
