@@ -1,308 +1,31 @@
-source ~/.vim/functions.vim
+"-----------------------------------------------------------------------------
+" config files
+"-----------------------------------------------------------------------------
+source ~/.vim/plugins.vim
 source ~/.vim/mappings.vim
+source ~/.vim/colorscheme.vim
 
-"-------------------------------------------------------------------------------
-" fold
-" NOTE: Collapse the method body
-"-------------------------------------------------------------------------------
-nmap <Backspace> za
-set foldenable
-set foldlevelstart=10
-" syntax folding might not work in some cases (e.g. in spec files)
-set foldmethod=indent
-set foldnestmax=10
+"-----------------------------------------------------------------------------
+" editing
+"-----------------------------------------------------------------------------
+set cpoptions+=$
+set colorcolumn=81
+" do not highlight after 200 column
+set synmaxcol=200
 
-"-------------------------------------------------------------------------------
-" Pathogen
-"-------------------------------------------------------------------------------
-filetype off
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
-filetype on
-
-"-------------------------------------------------------------------------------
-" NerdTree (NERD)
-"-------------------------------------------------------------------------------
-let g:NERDCreateDefaultMappings = 0
-let g:NERDSpaceDelims = 0
-let g:NERDDefaultAlign = 'left'
-
-map <Leader><Space> <Plug>NERDCommenterToggle
-map <silent> <leader>n :NERDTreeToggle<cr>
-map <silent> <leader>N :NERDTreeFind<cr>
-
-"-------------------------------------------------------------------------------
-" NERDCommenter
-"-------------------------------------------------------------------------------
-map ,<space> <plug>NERDCommenterToggle
-
-"-------------------------------------------------------------------------------
-" javascript-libraries-syntax.vim
-"-------------------------------------------------------------------------------
-let g:used_javascript_libs = 'react,underscore,jquery,d3'
-
-"-------------------------------------------------------------------------------
-" Robocop
-"-------------------------------------------------------------------------------
-let g:vimrubocop_config = '~/.vim/configs/rubocop/default.yml'
-
-"-------------------------------------------------------------------------------
-" matchit
-"-------------------------------------------------------------------------------
-runtime macros/matchit.vim
-
-"-------------------------------------------------------------------------------
-" vim-airline
-"-------------------------------------------------------------------------------
-let g:airline_powerline_fonts = 1
-let g:airline_theme='papercolor'
-
-"-------------------------------------------------------------------------------
-" Command-T
-"-------------------------------------------------------------------------------
-let g:CommandTMatchWindowReverse = 0
-let g:CommandTMaxHeight = 17
-let g:CommandTMaxFiles = 100000
-let g:CommandTWildIgnore = &wildignore."*.o,*.obj,.git,.svn,*.png,*.jpg,.DS_Store,*.log,public/uploads/**,public/images/**,public/system/images/**,public/assets/**,tmp/**,client/node_modules,node_modules/**,android/app/build/**,ios/build/**,spec/vcr_cassettes/**"
-
-nmap <silent> <leader>t :CommandT<cr>
-nmap <silent> <leader>r :CommandTFlush<cr>:CommandT<cr>
-nmap <silent> <leader>j :CommandTJump<cr>
-
-"-------------------------------------------------------------------------------
-" vim-markdown
-"-------------------------------------------------------------------------------
-
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_frontmatter = 1
-
-"-------------------------------------------------------------------------------
-" vim-rails
-"
-" example projections: https://gist.github.com/henrik/5676109
-"-------------------------------------------------------------------------------
-
-nmap <Leader>, :A<cr>
-nmap <Leader>v :AV<cr>
-nmap gs :AV<cr><c-w><s-l>
-
-let g:rails_projections = {
-\   'app/admin/*.rb': {
-\     'alternate': 'spec/controllers/admin/{}_controller_spec.rb'
-\   },
-\   'spec/controllers/admin/*_controller_spec.rb': {
-\     'alternate': 'app/admin/{}.rb'
-\   },
-\   'lib/*.rb': {
-\     'alternate': 'spec/{}_spec.rb'
-\   },
-\   'spec/*_spec.rb': {
-\     'alternate': 'lib/{}.rb'
-\   },
-\   'config/locales/*.ru.yml': {
-\     'alternate': 'config/locales/{}.en.yml'
-\   },
-\   'config/locales/*.en.yml': {
-\     'alternate': 'config/locales/{}.ru.yml'
-\   }
-\ }
-
-"-------------------------------------------------------------------------------
-" Tagbar
-" https://github.com/majutsushi/tagbar/blob/master/doc/tagbar.txt
-"-------------------------------------------------------------------------------
-nnoremap <silent> <Leader>b :TagbarToggle<cr>
-let g:tagbar_autofocus = 1
-let g:tagbar_autoclose = 1
-let g:tagbar_map_jump = 'o'
-let g:tagbar_map_showproto = '<cr>'
-let g:tagbar_map_togglefold = '<space>'
-let g:tagbar_type_ruby = {
-    \ 'kinds' : [
-        \ 'm:modules',
-        \ 'c:classes',
-        \ 'd:describes',
-        \ 'C:contexts',
-        \ 'f:methods',
-        \ 'F:singleton methods'
-    \ ]
-\ }
-let g:tagbar_type_markdown = {
-    \ 'ctagstype' : 'markdown',
-    \ 'kinds' : [
-        \ 'h:Heading_L1',
-        \ 'i:Heading_L2',
-        \ 'k:Heading_L3'
-    \ ]
-\ }
-
-"-------------------------------------------------------------------------------
-" QFEnter
-"-------------------------------------------------------------------------------
-
-" To open search window in new tab set 1
-let g:qfenter_enable_autoquickfix = 0
-
-let g:qfenter_keymap = {}
-let g:qfenter_keymap.open = ['<CR>']
-let g:qfenter_keymap.open_keep = ['<S-CR>']
-let g:qfenter_keymap.hopen = ['<C-s>']
-let g:qfenter_keymap.vopen = ['<C-v>']
-let g:qfenter_keymap.topen = ['<C-t>']
-
-"-------------------------------------------------------------------------------
-" ack.vim
-" https://github.com/mileszs/ack.vim/blob/master/doc/ack.txt
-"-------------------------------------------------------------------------------
-"hi AckSearch guifg=#444454 gui=italic
-
-let g:ackhighlight = 1
-"let g:ackprg = 'rg -FS --sort-files --vimgrep'
-let g:ackprg = 'rg -FS --sort-files --vimgrep'
-" disable empty search (searching the word under cursor) -
-" it complicates the logic to parse user input excessively
-"
-" use <C-r><C-w> to paste the word under cursor
-let g:ack_use_cword_for_empty_search = 0
-
-" QFEnter works with both quickfix windows and location lists
-" NOTE: Search doen't work, add dir after search, example: ./
-"map <Leader>s :call <SID>Search()<CR>
-map <Leader>s :Ack!<Space>
-
-" NOTE: Try to fix ack.vim
-"let g:ackprg = 'rg --fixed-strings --smart-case --vimgrep'
-"let g:ctrlp_user_command = 'rg --files %s'
-" NOTE END
-
-" useful symbols: ⎸│⮁⮀
-function! s:Search( )
-  echohl AckSearch
-  let l:input_phrase = input(' SEARCH ⮁ ')
-  echohl None
-
-  call <SID>MyLAck(l:input_phrase)
-endfunction
-
-" `!` is not allowed in function name
-"
-" https://github.com/mileszs/ack.vim/issues/5
-" https://stackoverflow.com/a/15403852/3632318
-" https://stackoverflow.com/questions/5669194
-" :help escape()
-" :help shellescape()
-"
-" for rg to work we need:
-"
-" - not to escape `!` at all
-" - to escape `%#` twice
-" - to escape other special characters (slashes, etc.) once
-" - not to treat strings starting with dashes as rg options
-"
-" useful functions:
-"
-" - `shellescape({string})`:
-"   escapes all special characters once (excluding `!%#`)
-" - `shellescape({string}, 1)`:
-"   escapes all special characters once (including `!%#`)
-" - `escape({string}, {chars})`:
-"   escapes only the characters it's told to escape
-" - `--` (options delimiter):
-"   signifies the end of rg options
-"
-" => escape all special characters excluding `!%#` with
-"    `shellescape`, escape `%#` with `escape` twice
-"    and let `--` deal with strings starting with dashes
-"
-" NOTE: still IDK how to search for literal '--'
-function! s:MyLAck(input_phrase, ...)
-  let l:glob = get(a:, 1, '')
-  let l:glob_option = len(l:glob) ? '-g ''*' . l:glob . '*''' : ''
-
-  let l:delimiter = ' -- '
-  let l:split_args = split(a:input_phrase, l:delimiter)
-  let l:args_len = len(l:split_args)
-
-  " no arguments
-  if l:args_len == 0
-    call <SID>ShowWarningMessage('Empty search')
-    return
-  " options only (`-w -- `)
-  elseif l:args_len == 1 && a:input_phrase =~ l:delimiter . '$'
-    call <SID>ShowWarningMessage('Empty search')
-    return
-  " search phrase only (` -- foo` or `foo`)
-  elseif l:args_len == 1
-    let l:options = l:glob_option
-    let l:search_phrase = join(l:split_args)
-  " options and search phrase (`-w -- foo`)
-  else
-    let l:options = l:glob_option . ' ' . l:split_args[0]
-    let l:search_phrase = join(l:split_args[1:-1], l:delimiter)
+" http://vim.wikia.com/wiki/Project_specific_settings
+function! SetupEnvironment()
+  let l:path = expand('%:p')
+  if l:path =~ '/Users/morr/develop/shikimori/'
+    setlocal colorcolumn=101
   endif
-
-  " ack.vim already escapes `|%#` once in autoload/ack.vim -
-  " escape `%#` once again here so that they're escaped twice
-  let l:escaped_search_phrase = escape(shellescape(l:search_phrase), '%#')
-
-  " don't use `silent` - it suppresses 'no match found' message
-  "
-  " search might break if ' -- ' is a substring of search phrase
-  " and user doesn't provide options - then part of search phrase
-  " is parsed as options which might yield unpredictable results
-  exec ':LAck! ' . l:options . l:delimiter . l:escaped_search_phrase
 endfunction
+autocmd! BufReadPost,BufNewFile * call SetupEnvironment()
 
-function! s:ShowWarningMessage(message)
-  redraw!
-  echohl WarningMsg
-  echo a:message
-  echohl None
-endfunction
-
-"-------------------------------------------------------------------------------
-" w0rp/ale.vim
-"-------------------------------------------------------------------------------
-
-let g:ale_enabled = 1
-"let g:ale_sign_column_always = 1
-hi SignColumn guibg=#F3E4EA
-
-" only linters from g:ale_linters are enabled
-let g:ale_linters_explicit = 1
-
-hi ALEWarningSign guibg=#FDE1FD guifg=#0512FB gui=bold
-hi ALEErrorSign guibg=#F4DBDC guifg=#662529 gui=bold
-
-" location list is populated by default -
-" this might overwrite the contents of already
-" opened location list (e.g., search results)
-""let g:ale_set_loclist = 0
-""let g:ale_set_quickfix = 0
-
-"let g:ale_sign_warning = 'W>'
-"let g:ale_sign_error = 'E>'
-
-" https://github.com/w0rp/ale/issues/505
-" to disable g:ale_lint_on_enter, it's necessary
-" to disable g:ale_lint_on_filetype_changed as well
-let g:ale_lint_on_filetype_changed = 1
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 'never'
-
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'ruby': ['rubocop']
-\ }
-
-au BufNewFile,BufRead *.rb nnoremap <silent> ,R :w<cr>:silent !rubocop --auto-correct %<cr>:edit!<cr>
-"au BufNewFile,BufRead *.js nnoremap <silent> ,R :w<cr>:silent !yarn run eslint --fix %<cr>:edit!<cr>
-
-"-------------------------------------------------------------------------------
-" options
-"-------------------------------------------------------------------------------
+"-----------------------------------------------------------------------------
+" other options
+"-----------------------------------------------------------------------------
 set nocompatible
-set backup
 set nowrap
 set history=9999
 set undolevels=9999
@@ -312,7 +35,7 @@ set directory=$HOME
 " russian language fix
 set langmap=ё`,йq,цw,уe,кr,еt,нy,гu,шi,щo,зp,фa,ыs,вd,аf,пg,рh,оj,лk,дl,э',яz,чx,сc,мv,иb,тn,ьm,б\\,,ю.,Ё~,ЙQ,ЦW,УE,КR,ЕT,НY,ГU,ШI,ЩO,ЗP,ФA,ЫS,ВD,АF,ПG,РH,ОJ,ЛK,ДL,Ж:,Э\\",ЯZ,ЧX,СC,МV,ИB,ТN,ЬM,Б<,Ю>
 " one word symbol class
-set iskeyword=@,48-57,_,192-255,\$,\-,\?
+set iskeyword=@,48-57,_,192-255,\$,\-
 " encodings
 set fileencodings=utf-8,windows-1251,iso-8859-15,koi8-r
 " fileformat
@@ -328,7 +51,7 @@ set copyindent    " copy the previous indentation on autoindenting
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
                   "    shiftwidth, not tabstop
 set nojoinspaces
-"set smartindent   " ломает отступы в случае 'if foo(enter)'
+set smartindent
 set expandtab
 set shiftwidth=2  " number of spaces to use for autoindenting
 
@@ -347,53 +70,29 @@ set smartcase     " ignore case if search pattern is all lowercase,
                   "    case-sensitive otherwise
 set smarttab      " insert tabs on the start of a line according to
 set noswapfile
+" split
+set splitright    " to open slits with 'gs' in right split
 " gui
 syntax on
-
-"-------------------------------------------------------------------------------
-" Scheme
-"-------------------------------------------------------------------------------
 set t_Co=256
-
-"1. ir_black
-colors ir_black_blackchestnut
-
-"2. PaperColor
-"set background=light
-"set background=dark
-"colorscheme PaperColor
-
-"-------------------------------------------------------------------------------
-" Fonts
-"-------------------------------------------------------------------------------
-
-"------------------------------------------------------------------------------80------------------100-------------------------------------140-----------------160
-" For text
-" 1234567890
-" !@#$%^&**()_+=;.:|/?<>
-" qwertyuiopasdfghjklzxcvbnm
-" QWERTYUIOPASDFGHJKLZXCVBNM
-
-"set guifont=Monaco:h14
-"set linespace=0
-
-set guifont=Monaco\ for\ Powerline:h13
-set linespace=0
-
-"set guifont=Inconsolata\ LGC:h12
-"set linespace=-2
-
-"set guifont=Inconsolata:h14
-"set linespace=1
-
-"set guifont=Andale\ Mono\ MT\ Std:h13
-"set linespace=1
-
+"colors ir_black_morr
+"colors sebocean
+if has("mac")
+  "set guifont=Source\ Code\ Pro:h14
+  "set guifont=Monaco:h14
+  " download Monaco for Powerline.otf from https://gist.github.com/baopham/1838072
+  set guifont=Monaco\ for\ Powerline:h14
+elseif has("gui_gtk2")
+  set guifont=Monaco\ 12
+else
+  set guifont=Monaco:h10
+endif
+" strings numeration
 set number " always show line numbers
-set cpoptions+=$
-set colorcolumn=81
 set guioptions-=T
+set guioptions+=c " disable some gui popups
 set ch=1
+" set noguipty
 set nostartofline
 set whichwrap+=>
 set whichwrap+=<
@@ -421,8 +120,8 @@ set noshowmode
 set noerrorbells
 "set nocp " option for cppomnicomplete
 set list
-"set listchars=trail:.
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
+set listchars=tab:>·,trail:·,precedes:#,extends:#,nbsp:·
+
 " allow to use backspace instead of "x"
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 " do not abandon buffer when it is unloaded
@@ -442,28 +141,23 @@ set complete+=t
 
 set wildmenu
 set wcm=<Tab>
-
 "dont fold by default
 set nofoldenable
 " tags
 set tags+=tags
 set tags+=tags2
-" runtimepath for vimdata
-set runtimepath+=~/.vimdata
+
+set maxmempattern=100000 " to avoid errors when opening huge VCR cassete files
+
 " vim-ruby
 if has("unix")
   set runtimepath+=~/.vim/vim-ruby
   set runtimepath+=~/.vim/vim-rails
-else
-  set runtimepath+=~/vimfiles/vim-ruby
-  set runtimepath+=~/vimfiles/vim-rails
 endif
 
-
-"-------------------------------------------------------------------------------
+"-----------------------------------------------------------------------------
 " menu
-"-------------------------------------------------------------------------------
-
+"-----------------------------------------------------------------------------
 if !has("unix")
   anoremenu &File.&Font.&Monaco_10 :set guifont=Monaco:h10<cr>
   anoremenu &File.&Font.&Consolas_10 :set guifont=Consolas:h12:cRUSSIAN<cr>
@@ -490,105 +184,44 @@ anoremenu &File.&Spell.&Russian :setlocal spell spelllang=ru<cr>
 anoremenu &File.&Spell.&English :setlocal spell spelllang=en<cr>
 anoremenu &File.&Spell.&Off :setlocal nospell spelllang=<cr>
 
-anoremenu &File.&Preview.&Firefox :!firefox %<cr>
-anoremenu &File.&Preview.&Opera :!opera %<cr>
-anoremenu &File.&Preview.&Midori :!midori %<cr>
-
-" tag list
-anoremenu &Tags.&Tagbar :TagbarToggle<cr>
-anoremenu &Tags.&TagList :TlistToggle<cr>
-anoremenu &Tags.&ctags :exec("!ctags -R --extra=+q --exclude=log --exclude=vendor --exclude=tmp --exclude=public --exclude=.git --exclude=.env --exclude=.rspec .")<cr>
-if has("unix")
-  anoremenu &Tags.&rjstags :exec("!ruby ~/.vim/bin/rjstags/rjstags.rb .")<cr>
-  anoremenu &Tags.&rjstags\ file :exec("!ruby ~/.vim/bin/rjstags/rjstags.rb %")<cr>
-else
-  anoremenu &Tags.&rjstags :exec("!ruby '".$HOME."//vimfiles//bin//rjstags//rjstags.rb' .")<cr>
-  anoremenu &Tags.&rjstags\ file :exec("!ruby '".$HOME."//vimfiles//bin//rjstags//rjstags.rb' %")<cr>
-endif
-
 "-----------------------------------------------------------------------------
 " autocommands
 "-----------------------------------------------------------------------------
-"nmap <LocalLeader>k :exec("!lynx -accept_all_cookies http://php.net/".expand("<cword>"))<cr>
-"command! -nargs=0 RDocPreview call RDocRenderBufferToPreview()
+" syntax highlight fix for brackets
+" au BufNewFile,BufRead *.rb syn match rubyParens "[()\[\]{}]"
+" au BufNewFile,BufRead *.json syn match rubyParens "[()\[\]{}]"
+" au BufNewFile,BufRead *.js syn match rubyParens "[()\[\]{}]"
+" au BufNewFile,BufRead *.coffee syn match rubyParens "[()\[\]{}]"
+" au BufNewFile,BufRead *.jbuilder syn match rubyParens "[()\[\]{}]"
 
-"function! RDocRenderBufferToPreview()
-"  let rdocoutput = "/tmp/vimrdoc/"
-"  call system("rdoc " . bufname("%") . " --op " . rdocoutput)
-"  call system("open -a Safari ". rdocoutput . "index.html")
-"endfunction
+autocmd! bufwritepost ~/.vim/vimrc source ~/.vim/vimrc
+autocmd! bufwritepost ~/.vim/colorscheme.vim source ~/.vim/colorscheme.vim
+autocmd! bufwritepost ~/.vim/plugins.vim source ~/.vim/plugins.vim
+autocmd! bufwritepost ~/.vim/mappings.vim source ~/.vim/mappings.vim
 
-" backups
-autocmd! bufwritepre * call BackupDir()
-" reload vimrc
-if has("unix")
-  autocmd! bufwritepost ~/.vimrc source ~/.vimrc
-  autocmd! bufwritepost ~/.gvimrc source ~/.gvimrc
-
-  autocmd! bufwritepost ~/.vim/vimrc source ~/.vim/vimrc
-  autocmd! bufwritepost ~/.vim/gvimrc source ~/.vim/gvimrc
-else
-  autocmd! bufwritepost ~/vimfiles/gvimrc source ~/vimfiles/gvimrc
-  autocmd! bufwritepost ~/vimfiles/vimrc source ~/vimfiles/vimrc
-  autocmd! bufwritepost $VIM/_gvimrc source $VIM/_gvimrc
-  autocmd! bufwritepost $VIM/_vimrc source $VIM/_vimrc
-endif
-
-"-------------------------------------------------------------------------------
-" File Types
-"-------------------------------------------------------------------------------
 au BufRead,BufNewFile *.scss set filetype=scss
-au BufRead,BufNewFile *_spec.rb set filetype=rspec
 au BufNewFile,BufRead *.json set filetype=javascript
 au BufNewFile,BufRead *.slim set filetype=slim
 au BufNewFile,BufRead *.json set filetype=json
-au BufNewFile,BufRead *.json.jb set filetype=ruby
-au BufNewFile,BufRead *.rb set makeprg=ruby\ -c\ %
+au BufNewFile,BufRead *.jade.erb set filetype=pug
+
+"au BufNewFile,BufRead *.rb set makeprg=ruby\ -c\ %
 au BufNewFile,BufRead *.ass,*.ssa set filetype=ssa
-" syntax highlight fix for brackets
-au BufNewFile,BufRead * syn match rubyParens "[()\[\]]"
-au FileType go set nolist
-
-"-------------------------------------------------------------------------------
-" omni completion
-"-------------------------------------------------------------------------------
-autocmd FileType ruby set omnifunc=rubycomplete#Complete
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=RjsComplete
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd FileType c set omnifunc=ccomplete#Complete
-
 
 "-----------------------------------------------------------------------------
-" plugins
+" functions
 "-----------------------------------------------------------------------------
-" ruby code completion
-let g:rubycomplete_buffer_loading = 1
-let g:rubycomplete_classes_in_global = 1
-let g:rubycomplete_include_object = 1
-let g:rubycomplete_include_objectspace = 1
-let g:rubycomplete_rails = 1
+"jump to last cursor position when opening a file
+"dont do it when writing a commit log entry
+autocmd BufReadPost * call SetCursorPosition()
+function! SetCursorPosition()
+  if &filetype !~ 'commit\c'
+    if line("'\"") > 0 && line("'\"") <= line("$")
+      exe "normal! g`\""
+      normal! zz
+    endif
+  end
+endfunction
 
-" SessionMgr
-let g:SessionMgr_AutoManage = 0
-let g:SessionMgr_DefaultName = "last"
-" SnipMate
-"let s:did_snips_mappings = 1
-" Tlist settings
-let g:Tlist_Show_One_File = 1
-let g:Tlist_GainFocus_On_ToggleOpen = 1
-let g:Tlist_Use_Right_Window = 1
-let g:Tlist_WinWidth = 45
 set completeopt-=preview
 set completeopt+=longest
-
-" javascript omnicomplete
-let g:rjscomplete_library = 'jQuery_1.4'
-let g:rjscomplete_find_in_prototype = 0
-
-" used to make vim default 'man' viewer
-" see http://vim.wikia.com/wiki/Using_vim_as_a_man-page_viewer_under_Unix
-let $PAGER=''

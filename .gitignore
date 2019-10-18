@@ -110,3 +110,6 @@ go/
 log/
 projects/
 tmp/
+
+.vim_my/
+.vim_first_attempt/
