@@ -36,7 +36,6 @@
 .ssh
 .viminf*
 .viminfo
-.vimrc
 .wget-hsts
 .world_art_parser.yml
 .yarnrc
