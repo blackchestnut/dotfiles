@@ -91,9 +91,8 @@ export PATH=$PATH:$GOPATH/bin # Add Go bins to PATH for installed golang-program
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/share/npm/bin
 # export PATH=/usr/local/bin:$PATH
 # export PATH=/usr/local/sbin:$PATH
-#
-# TODO:
-# export PATH=/usr/local/opt/postgresql@9.5/bin:$PATH
+
+export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
 export ANDROID_HOME=/usr/local/share/android-sdk     # React Native for Android
 export ANDROID_SDK_ROOT=ANDROID_HOME                 #
 export PATH=${PATH}:${ANDROID_HOME}/tools            # - android
