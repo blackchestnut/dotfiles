@@ -154,8 +154,8 @@ alias pr=cd_projects
 
 alias reload='. ~/.zshrc'
 alias m='mvim -S ~/.vimrc'
-alias mzsh='mvim ~/.zshrc'
-alias mvimrc='mvim ~/.vim/vimrc'
+alias mzsh='m ~/.zshrc'
+alias mvimrc='m ~/.vim/vimrc'
 
 #-----------------------------------------------------------------------------------------
 # ssh
