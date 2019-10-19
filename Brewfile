@@ -17,8 +17,6 @@ brew 'imagemagick'
 # brew 'macvim' brew install macvim --HEAD
 brew 'ripgrep'
 brew 'wget'
-brew 'zsh'
-brew 'zsh-completions'
 brew 'yarn'
 cask 'adoptopenjdk8' # required for elasticsearch
 brew 'elasticsearch', restart_service: :changed
@@ -36,3 +34,9 @@ brew 'FreeTDS'
 brew 'ansible'
 
 mas 'Monosnap', id: 540348655
+
+# Manual
+
+# brew 'zsh'
+# brew 'zsh-completions'
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
