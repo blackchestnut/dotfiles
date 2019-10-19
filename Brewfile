@@ -39,7 +39,6 @@ mas 'Elmedia Video Player', id: 1044549675
 # Manual
 
 # brew 'zsh'
-# brew 'zsh-completions'
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # brew install postgresql@9.6
