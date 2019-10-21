@@ -64,6 +64,41 @@ map <silent> w <plug>CamelCaseMotion_w
 map <silent> e <plug>CamelCaseMotion_e
 
 "-----------------------------------------------------------------------------
+" save position while page up/down
+"-----------------------------------------------------------------------------
+nmap <pageup> <c-U><c-U>
+imap <pageup> <c-O><c-U><c-O><c-U>
+vmap <pageup> <c-U><c-U>
+nmap <pagedown> <c-D><c-D>
+imap <pagedown> <c-O><c-D><c-O><c-D>
+vmap <pagedown> <c-D><c-D>
+
+"-----------------------------------------------------------------------------
+" Tabs
+"-----------------------------------------------------------------------------
+nmap <silent> <a-S-left> :tabmove -1<cr>
+imap <silent> <a-S-left> <c-O>:tabmove -1<cr>
+nmap <silent> <a-S-right> :tabmove +1<cr>
+imap <silent> <a-S-right> <c-O>:tabmove +1<cr>
+
+"-----------------------------------------------------------------------------
+" Insert newlines
+"-----------------------------------------------------------------------------
+nmap <silent> <cr> o<Esc>
+nmap <silent> <s-cr> O<Esc>
+
+"-----------------------------------------------------------------------------
+" Turn off highlighting and clear messages
+"-----------------------------------------------------------------------------
+nmap <silent> <space> :nohlsearch<Bar>:echo<cr>
+
+"-----------------------------------------------------------------------------
+" Moving selected block
+"-----------------------------------------------------------------------------
+vmap < <gv
+vmap > >gv
+
+"-----------------------------------------------------------------------------
 " Copy/Paste
 "-----------------------------------------------------------------------------
 vnoremap <c-x> "+x
@@ -71,12 +106,6 @@ vnoremap <s-del> "+x
 
 vnoremap <c-c> "+y
 vnoremap <c-insert> "+y
-
-"-----------------------------------------------------------------------------
-" hotkeys / shortcuts
-"-----------------------------------------------------------------------------
-vmap < <gv
-vmap > >gv
 
 " Pasting blockwise and linewise selections is not possible in Insert and
 " Visual mode without the +virtualedit feature.  They are pasted as if they
@@ -88,78 +117,34 @@ exe 'vnoremap <script> <C-V>' paste#paste_cmd['v']
 
 imap <s-insert> <c-v>
 vmap <s-insert> <c-v>
-
 nmap <a-v> <c-v>
 vmap <a-v> <c-v>
-"" save position while page up/down
-"nmap <pageup> <c-U><c-U>
-"nmap <pagedown> <c-D><c-D>
-"imap <pageup> <c-O><c-U><c-O><c-U>
-"imap <pagedown> <c-O><c-D><c-O><c-D>
-"vmap <pageup> <c-U><c-U>
-"vmap <pagedown> <c-D><c-D>
-"" Bubble single lines
-"nmap <c-up> [e
-"nmap <c-down> ]e
-"" Bubble multiple lines
-"vmap <c-up> [egv
-"vmap <c-down> ]egv
-"" move with shift
-"imap <s-k4> <esc>Bi
-"vmap <s-k4> B
-"nmap <s-k4> B
-"imap <s-k6> <esc>Ea
-"vmap <s-k6> E
-"nmap <s-k6> E
-"map <s-k8> <pageup>
-"map <s-k2> <pagedown>
-"" insert newline after current line
-"nmap <silent> <cr> o<Esc>
-"" insert newline before current line
-"nmap <silent> <s-cr> O<Esc>
-"" turn off highlighting and clear messages
-"nmap <silent> <space> :nohlsearch<Bar>:echo<cr>
-"" autocomplete
-"imap <tab> <c-r>=InsertTabWordWrapper()<cr>
-"imap <c-tab> <c-r>=InsertTabLineWrapper()<cr>
-"imap <s-tab> <c-n>
-"
-"nmap <silent><a-S-left> :tabmove -1<cr>
-"imap <silent><a-S-left> <c-O>:tabmove -1<cr>
-"nmap <silent><a-S-right> :tabmove +1<cr>
-"imap <silent><a-S-right> <c-O>:tabmove +1<cr>
-"" search selected text
-"vmap <silent>* <esc>:call VisualSearch('/')<cr>/<c-R>/<cr>
-"vmap <silent># <esc>:call VisualSearch('?')<cr>?<c-R>/<cr>
-"" Trailing Spaces
-"nmap <silent>,t :call RemoveTrailingSpaces()<cr>:echo 'trailing spaces have been removed'<cr>
-"
-"nmap <f3> :BuffergatorToggle<cr>
-"let g:speckySpecSwitcherKey="<f4>"
-"" Tags
-"nnoremap <f12> :emenu Tags.<tab>
-"inoremap <f12> <c-O>:emenu Tags.<tab>
-"vnoremap <f12> <esc>:emenu Tags.<tab>
-"" ruby debugger
-"" vimrc edit
-"if exists('$MYGVIMRC')
-"  map ,v :vsp $MYGVIMRC<CR>
-"  map ,V :source $MYGVIMRC<CR>
-"else
-"  map ,v :vsp $MYVIMRC<CR>
-"  map ,V :source $MYVIMRC<CR>
-"end
-""  'Control + \' - Open a new tab and tag into the function/variable currently under cursor
-"imap {<cr> {<cr>}<Esc>O
-"imap <% <%  %><left><left><left>
-"imap <%= <%= %><left><left><left>
-"
-"map <c-\> :tab split<cr>:exec("tag ".expand("<cword>"))<cr>
+
+"-----------------------------------------------------------------------------
+" Bubble single lines
+"-----------------------------------------------------------------------------
+nmap <c-up> [e
+nmap <c-down> ]e
+
+"-----------------------------------------------------------------------------
+" Buffers
+"-----------------------------------------------------------------------------
+nmap <f3> :BuffergatorToggle<cr>
+
+"-----------------------------------------------------------------------------
+" RemoveTrailingSpaces
+"-----------------------------------------------------------------------------
+nmap <silent>,t :call RemoveTrailingSpaces()<cr>:echo 'trailing spaces have been removed'<cr>
+function! RemoveTrailingSpaces()
+  normal! mzHmy
+  execute '%s/\t/  /ge'
+  execute '%s/\s\+$//ge'
+  normal! 'yzt`z
+endfunction
 
 "-------------------------------------------------------------------------------
 " Generators
 "-------------------------------------------------------------------------------
-
 inoremap {{ {}<Esc>i
 inoremap {{{ {{}}<Esc>hi
 inoremap (( ()<Esc>i
@@ -167,12 +152,11 @@ inoremap (( ()<Esc>i
 "-------------------------------------------------------------------------------
 " Quotes
 "-------------------------------------------------------------------------------
-
-nmap <Leader>' cs"'
-nmap <Leader>" cs'"
-nmap <Leader>'' ciw'"<Esc>P
-nmap <Leader>'' ciw''<Esc>P
-nmap <Leader>'d daW"=substitute(@@,"'\\\|\"","","g")<CR>P
+"nmap <Leader>' cs"'
+"nmap <Leader>" cs'"
+"nmap <Leader>'' ciw'"<Esc>P
+"nmap <Leader>'' ciw''<Esc>P
+"nmap <Leader>'d daW"=substitute(@@,"'\\\|\"","","g")<CR>P
 
 "-----------------------------------------------------------------------------
 " rebuild syntax

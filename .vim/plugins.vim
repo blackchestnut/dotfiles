@@ -1,7 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
 " morr
-"Plug 'airblade/vim-gitgutter'
 "Plug 'morr/vim-ruby'
 
 " my
@@ -13,6 +12,7 @@ call plug#begin('~/.vim/plugged')
 " vim-airline/vim-airline
 " vim-airline/vim-airline-themes
 
+Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color'
 Plug 'bkad/CamelCaseMotion'
 Plug 'briancollins/vim-jst'
@@ -28,7 +28,6 @@ Plug 'jparise/vim-graphql'
 Plug 'kchmck/vim-coffee-script'
 Plug 'keithbsmiley/rspec.vim'
 Plug 'mhinz/vim-hugefile'
-Plug 'vim-ruby/vim-ruby'
 Plug 'slim-template/vim-slim'
 Plug 'sstephenson/eco'
 Plug 'tpope/vim-endwise'
@@ -36,6 +35,7 @@ Plug 'tpope/vim-haml'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/grep.vim'
 Plug 'vim-scripts/matchit.zip'
 
