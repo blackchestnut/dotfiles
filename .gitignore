@@ -13,7 +13,6 @@
 .config/mc/ini
 .emulator_console_auth_token
 .environments
-.gemrc
 .gtk-bookmarks
 .guard_history
 .heroku
@@ -36,7 +35,6 @@
 .ssh
 .viminf*
 .viminfo
-.vimrc
 .wget-hsts
 .world_art_parser.yml
 .yarnrc
@@ -110,3 +108,6 @@ go/
 log/
 projects/
 tmp/
+
+.vim_my/
+.vim_first_attempt/

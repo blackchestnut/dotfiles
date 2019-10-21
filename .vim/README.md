@@ -1,8 +1,8 @@
 ## Requirements
 
-### Packages `ctags`, `cowsay`, `fortune`
+### Packages `ctags`, `the_silver_searcher`
 ```
-brew install ctags cowsay fortune
+brew install ctags the_silver_searcher ripgrep
 ```
 
 ### Fonts
@@ -11,36 +11,8 @@ download and install this font: [monaco_for_powerline.otf](https://gist.github.c
 
 [About Monaco for Powerline](https://gist.github.com/baopham/1838072)
 
-### Ruby 2.0
-
-Install rvm by following [this instruction](http://rvm.io/rvm/install).
-
-Install ruby 2.0 via rvm:
-```
-rvm install ruby-2.0
-```
-
+### Ruby 2.6.5
 
 ## Vim configs installation
 
-Clone this repo into your home directory either as .vim (linux) or vimfiles (windows).
-
-Then cd into the repo and run this to get all plugins installed: 
-`./update_bundles`
-
-
-Put this code into your ~/.vimrc along with your personal hacks:
-
-### OSX and Linux
-```
-source ~/.vim/vimrc
-source ~/.vim/gvimrc
-```
-
-### Windows
-```
-source ~/vimfiles/vimrc
-source ~/vimfiles/gvimrc
-```
-
-## Enjoy! :)
+`:PlugInstall`
