@@ -64,7 +64,7 @@ map <silent> w <plug>CamelCaseMotion_w
 map <silent> e <plug>CamelCaseMotion_e
 
 "-----------------------------------------------------------------------------
-" save position while page up/down
+" Save position while page up/down
 "-----------------------------------------------------------------------------
 nmap <pageup> <c-U><c-U>
 imap <pageup> <c-O><c-U><c-O><c-U>

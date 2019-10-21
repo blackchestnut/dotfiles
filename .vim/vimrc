@@ -1,19 +1,19 @@
 "-----------------------------------------------------------------------------
-" config files
+" Config files
 "-----------------------------------------------------------------------------
 source ~/.vim/plugins.vim
 source ~/.vim/mappings.vim
 source ~/.vim/colorscheme.vim
 
 "-----------------------------------------------------------------------------
-" editing
+" Editing
 "-----------------------------------------------------------------------------
 set cpoptions+=$
 set colorcolumn=81 " 101 ??
 set synmaxcol=200 " do not highlight after 200 column
 
 "-------------------------------------------------------------------------------
-" fold (Collapse the method body) TODO: Fix
+" Fold (Collapse the method body) TODO: Fix
 "-------------------------------------------------------------------------------
 "nmap <Backspace> za
 "set foldenable
@@ -23,7 +23,7 @@ set synmaxcol=200 " do not highlight after 200 column
 "set foldnestmax=10
 
 "-----------------------------------------------------------------------------
-" other options
+" Other options
 "-----------------------------------------------------------------------------
 set nocompatible
 set nowrap
@@ -36,11 +36,7 @@ set directory=$HOME
 set langmap=ё`,йq,цw,уe,кr,еt,нy,гu,шi,щo,зp,фa,ыs,вd,аf,пg,рh,оj,лk,дl,э',яz,чx,сc,мv,иb,тn,ьm,б\\,,ю.,Ё~,ЙQ,ЦW,УE,КR,ЕT,НY,ГU,ШI,ЩO,ЗP,ФA,ЫS,ВD,АF,ПG,РH,ОJ,ЛK,ДL,Ж:,Э\\",ЯZ,ЧX,СC,МV,ИB,ТN,ЬM,Б<,Ю>
 " one word symbol class
 set iskeyword=@,48-57,_,192-255,\$,\-
-" encodings
 set fileencodings=utf-8,windows-1251,iso-8859-15,koi8-r
-" fileformat
-"set fileformats=dos
-" sessions
 set sessionoptions=curdir,buffers,tabpages,folds,options,resize,globals,localoptions
 "set noeol bin
 " keep more context when scrolling off the end of a buffer
@@ -62,9 +58,6 @@ set softtabstop=2
 set incsearch
 set hlsearch
 set showmatch
-" clipboard
-"set clipboard=unnamedplus
-"set noignorecase
 set ignorecase    " ignore case when searching
 set smartcase     " ignore case if search pattern is all lowercase,
                   "    case-sensitive otherwise
@@ -156,7 +149,7 @@ if has("unix")
 endif
 
 "-----------------------------------------------------------------------------
-" menu
+" Menu
 "-----------------------------------------------------------------------------
 if !has("unix")
   anoremenu &File.&Font.&Monaco_10 :set guifont=Monaco:h10<cr>
@@ -185,15 +178,8 @@ anoremenu &File.&Spell.&English :setlocal spell spelllang=en<cr>
 anoremenu &File.&Spell.&Off :setlocal nospell spelllang=<cr>
 
 "-----------------------------------------------------------------------------
-" autocommands
+" Autocommands
 "-----------------------------------------------------------------------------
-" syntax highlight fix for brackets
-" au BufNewFile,BufRead *.rb syn match rubyParens "[()\[\]{}]"
-" au BufNewFile,BufRead *.json syn match rubyParens "[()\[\]{}]"
-" au BufNewFile,BufRead *.js syn match rubyParens "[()\[\]{}]"
-" au BufNewFile,BufRead *.coffee syn match rubyParens "[()\[\]{}]"
-" au BufNewFile,BufRead *.jbuilder syn match rubyParens "[()\[\]{}]"
-
 autocmd! bufwritepost ~/.vim/vimrc source ~/.vim/vimrc
 autocmd! bufwritepost ~/.vim/colorscheme.vim source ~/.vim/colorscheme.vim
 autocmd! bufwritepost ~/.vim/plugins.vim source ~/.vim/plugins.vim
@@ -205,11 +191,10 @@ au BufNewFile,BufRead *.slim set filetype=slim
 au BufNewFile,BufRead *.json set filetype=json
 au BufNewFile,BufRead *.jade.erb set filetype=pug
 
-"au BufNewFile,BufRead *.rb set makeprg=ruby\ -c\ %
 au BufNewFile,BufRead *.ass,*.ssa set filetype=ssa
 
 "-----------------------------------------------------------------------------
-" functions
+" Functions
 "-----------------------------------------------------------------------------
 "jump to last cursor position when opening a file
 "dont do it when writing a commit log entry
