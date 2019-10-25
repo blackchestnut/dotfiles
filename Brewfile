@@ -51,11 +51,19 @@ brew 'the_silver_searcher'
 mas 'Monosnap', id: 540348655
 mas 'Elmedia Video Player', id: 1044549675
 
+#---------------------------------------------------
 # Manual
+#---------------------------------------------------
 
+# Zsh
+#---------------------------------------------------
 # brew 'zsh'
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # brew install postgresql@9.6
 # After install:
 # brew services start postgresql@9.6
+
+# Chef
+# ------------------
+# brew cask install chef/chef/chefdk
