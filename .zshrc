@@ -137,12 +137,11 @@ alias as="cd $RALSPROJECTS/grin/amazing-supplies"
 alias aw="cd $RALSPROJECTS/grin/grin"
 alias ass="cd $RALSPROJECTS/grin/asscraper"
 alias asa="cd $RALSPROJECTS/grin/asapp"
-alias ca="cd $RALSPROJECTS/grin/cardwiz"
-alias cad="cd $RALSPROJECTS/grin/cardwiz-data"
-alias mi="cd $RALSPROJECTS/minisklad.su/minisklad"
-alias mic="cd $RALSPROJECTS/minisklad.su/minisklad-chef"
-alias mia="cd $RALSPROJECTS/minisklad.su/minisklad-app"
-alias miaa="cd $RALSPROJECTS/minisklad.su/minisklad-app-admin"
+alias ca="cd $RALSPROJECTS/cardwiz/cardwiz"
+alias cad="cd $RALSPROJECTS/cardwiz/cardwiz-data"
+alias mi="cd $RALSPROJECTS/minisklad/minisklad"
+alias mic="cd $RALSPROJECTS/minisklad/minisklad-chef"
+alias mia="cd $RALSPROJECTS/minisklad/minisklad-app"
 cd_projects() {
   cd ~/projects/$1
 }
