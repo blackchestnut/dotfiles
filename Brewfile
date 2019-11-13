@@ -50,6 +50,14 @@ brew 'the_silver_searcher'
 #---------------------------------------------------
 mas 'Monosnap', id: 540348655
 mas 'Elmedia Video Player', id: 1044549675
+mas 'Things 3', id: 904280696
+
+#---------------------------------------------------
+# NOT in AppStore
+#---------------------------------------------------
+# https://www.duetdisplay.com
+# https://www.getpostman.com/downloads/
+# https://www.toptal.com/tracker/#download
 
 #---------------------------------------------------
 # Manual
