@@ -72,6 +72,10 @@ mas 'Things 3', id: 904280696
 # After install:
 # brew services start postgresql@9.6
 
+#---------------------------------------------------
+# Deprecated
+#---------------------------------------------------
+
 # Chef
 # ------------------
 # brew cask install chef/chef/chefdk
