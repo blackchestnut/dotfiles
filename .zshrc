@@ -124,7 +124,9 @@ source ~/.environments
 #-----------------------------------------------------------------------------------------
 
 RALSPROJECTS="~/projects"
-alias my="cd $RALSPROJECTS/my/mybudget"
+alias my1="cd $RALSPROJECTS/mybudget/mybudget"
+alias my="cd $RALSPROJECTS/mybudget/mybudget2"
+alias mya="cd $RALSPROJECTS/mybudget/mybudget2-api"
 alias mygo="cd $GOPATH/src/github.com/blackchestnut"
 alias vi="cd $RALSPROJECTS/my/vimocean"
 alias a="cd $RALSPROJECTS/agileseason/agileseason2"
