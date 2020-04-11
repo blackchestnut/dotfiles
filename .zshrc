@@ -142,8 +142,10 @@ alias ca="cd $RALSPROJECTS/cardwiz/cardwiz"
 alias cad="cd $RALSPROJECTS/cardwiz/cardwiz-data"
 alias caa="cd $RALSPROJECTS/cardwiz/cardwiz-algo"
 alias mi="cd $RALSPROJECTS/minisklad/minisklad"
-alias mic="cd $RALSPROJECTS/minisklad/minisklad-chef"
 alias mia="cd $RALSPROJECTS/minisklad/minisklad-app"
+alias mic="cd $RALSPROJECTS/minisklad/minisklad-chef"
+alias min="cd $RALSPROJECTS/minisklad/minisklad-node"
+alias minc="cd $RALSPROJECTS/minisklad/minisklad-node-chef"
 cd_projects() {
   cd ~/projects/$1
 }
@@ -176,6 +178,7 @@ alias gb="git checkout -b $1"
 alias gc="git commit -m $1"
 alias gcc="git commit --amend -m $1"
 alias gch="git checkout $1"
+alias gcp="git cherry-pick $1"
 alias gd1='git diff HEAD~1 --color'
 alias gd2='git diff HEAD~2 --color'
 alias gd3='git diff HEAD~3 --color'
@@ -213,8 +216,7 @@ alias redo="rake db:migrate:redo VERSION=$1 && RAILS_ENV=test rake db:migrate:re
 alias pdeploy='cap production deploy'
 alias sdeploy='cap staging deploy'
 alias deploy=pdeploy
-alias dp=pdeploy
-alias ds=sdeploy
+alias dp='./deploy.sh'
 alias rake='noglob rake'
 
 #-----------------------------------------------------------------------------------------

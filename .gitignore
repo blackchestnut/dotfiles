@@ -86,6 +86,7 @@ default.txaPackage
 .pow
 .putty/
 .rbenv/
+.react-native-cli/
 .rncache/
 .rvm/
 .subversion/
