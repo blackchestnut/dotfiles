@@ -68,7 +68,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(ruby bundler capistrano gem osx rvm ssh-agent rake brew command-not-found compleat composer cp history history-substring-search git-remote-branch git git-flow git-extras github)
+plugins=(ruby bundler capistrano gem osx rvm ssh-agent rake brew command-not-found compleat composer cp history history-substring-search git git-flow git-extras github)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -159,6 +159,8 @@ alias reload='. ~/.zshrc'
 alias m='mvim -S ~/.vimrc'
 alias mzsh='m ~/.zshrc'
 alias mvimrc='m ~/.vim/vimrc'
+alias python='/usr/local/bin/python3'
+alias pip='/usr/local/bin/pip3'
 
 #-----------------------------------------------------------------------------------------
 # ssh
