@@ -101,6 +101,10 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools   # - adb (Android Debug Brid
 export BUNDLER_EDITOR=mvim # For $ bundle open gem_name
 export REACT_EDITOR=mvim
 export EDITOR=mvim
+
+# Ruby-build installs a non-Homebrew OpenSSL for each Ruby version installed and these are never upgraded.
+# To link Rubies to Homebrew's OpenSSL 1.1 (which is upgraded) add the following.
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 source ~/.environments
 

@@ -67,6 +67,7 @@ default.txaPackage
 .cordova/
 .dropbox/
 .expo/
+.fastlane/
 .gem/
 .gnupg/
 .gnupg_pre_2.1/
@@ -75,6 +76,7 @@ default.txaPackage
 .hex/
 .ionic/
 .itmstransporter/
+.keras/
 .local/
 .m2/
 .mix/
