@@ -194,7 +194,7 @@ alias gm='git mergetool --tool=vimdiff'
 alias gp='git push'
 alias grh='git reset --hard && git clean -f'
 alias gs='git status'
-alias gu='git fetch && git pull --rebase' # https://github.com/aanand/git-up
+alias gu='git fetch && git pull --rebase --autostash'
 alias develop='git checkout develop && gu'
 alias master='git checkout master && gu'
 alias staging='git checkout staging && gu'
