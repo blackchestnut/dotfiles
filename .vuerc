@@ -1,4 +1,25 @@
 {
   "useTaobaoRegistry": false,
-  "packageManager": "yarn"
+  "packageManager": "yarn",
+  "latestVersion": "4.5.6",
+  "lastChecked": 1600179507259,
+  "presets": {
+    "vue3": {
+      "useConfigFiles": false,
+      "plugins": {
+        "@vue/cli-plugin-babel": {},
+        "@vue/cli-plugin-router": {
+          "historyMode": false
+        },
+        "@vue/cli-plugin-vuex": {},
+        "@vue/cli-plugin-eslint": {
+          "config": "base",
+          "lintOn": [
+            "save"
+          ]
+        }
+      },
+      "vueVersion": "3"
+    }
+  }
 }
