@@ -89,8 +89,6 @@ export NODE_PATH=/usr/local/lib/node_modules
 export GOPATH=$HOME/go        # Go Workspaces
 export PATH=$PATH:$GOPATH/bin # Add Go bins to PATH for installed golang-programms
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/share/npm/bin
-# export PATH=/usr/local/bin:$PATH
-# export PATH=/usr/local/sbin:$PATH
 
 export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
 export ANDROID_HOME=/usr/local/share/android-sdk     # React Native for Android
@@ -107,6 +105,11 @@ export EDITOR=mvim
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 source ~/.environments
+
+# Kladovkin
+# https://github.com/blackchestnut/minisklad#project-setup
+# export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+# export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/usr/local/opt/libffi/lib/pkgconfig"
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
