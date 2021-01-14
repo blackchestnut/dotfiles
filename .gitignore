@@ -42,6 +42,7 @@
 .zlogin
 .zsh*
 default.txaPackage
+yarn.lock
 
 .vim/.sessions
 .vim/_bundle
@@ -93,8 +94,10 @@ default.txaPackage
 .rvm/
 .subversion/
 .vim_backups/
+.vue-cli-ui/
 .vue-templates/
 .webdrivers/
+.yarn/
 Applications/
 Backup/
 Desktop/
@@ -109,6 +112,7 @@ Public/
 apps/
 go/
 log/
+node_modules/
 projects/
 tmp/
 
