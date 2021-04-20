@@ -134,6 +134,7 @@ RALSPROJECTS="~/projects"
 alias my1="cd $RALSPROJECTS/mybudget/mybudget"
 alias my="cd $RALSPROJECTS/mybudget/mybudget2"
 alias mya="cd $RALSPROJECTS/mybudget/mybudget2-api"
+alias mys="cd $RALSPROJECTS/mybudget/mystocks"
 alias mygo="cd $GOPATH/src/github.com/blackchestnut"
 alias vi="cd $RALSPROJECTS/my/vimocean"
 alias a="cd $RALSPROJECTS/agileseason/agileseason2"
@@ -257,6 +258,7 @@ alias ys='yarn start'
 # Process
 #-----------------------------------------------------------------------------------------
 
+alias psqlrestart='brew services restart postgresql@9.6'
 alias psg="ps aux|grep $1"
 
 port_lock() {
