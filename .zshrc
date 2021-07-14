@@ -208,6 +208,7 @@ alias push=gp
 alias ccom='git commit --amend -m'
 alias misc='git add -A && git commit -m "misc"'
 alias cleanup='git add -A && git commit -m "code cleanup"'
+alias refactoring='git add -A && git commit -m "refactoring"'
 
 #-----------------------------------------------------------------------------------------
 # Rails
